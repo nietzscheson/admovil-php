@@ -1,0 +1,30 @@
+{
+    "name": "nietzscheson/admovil-php",
+    "type": "library",
+    "description": "Not-official Admovil API Client for PHP aplications.",
+    "keywords": ["admovil", "sat", "cfdi", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cristian Angulo Nova <@nietzscheson>"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "doctrine/common": "^2.8",
+        "behat/behat": "^3.4",
+        "zendframework/zend-soap": "^2.6"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^4.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": { "Nietzscheson\\Admovil\\": "src" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Nietzscheson\\Admovil\\spec\\": "spec/" }
+    }
+}

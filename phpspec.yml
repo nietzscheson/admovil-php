@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Nietzscheson\Admovil
+        psr4_prefix: Nietzscheson\Admovil
+        src_path: .
