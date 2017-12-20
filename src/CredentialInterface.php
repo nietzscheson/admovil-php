@@ -24,14 +24,4 @@ interface CredentialInterface extends UserInterface
      * @param string $id
      */
     public function setSystemId(string $id): void;
-
-    /**
-     * @return string
-     */
-    public function getBusinessId(): string;
-
-    /**
-     * @param string $businessId
-     */
-    public function setBusinessId(string $businessId): void;
 }

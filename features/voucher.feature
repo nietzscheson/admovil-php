@@ -5,8 +5,8 @@ Feature: Admovil Voucher
 
   Background:
       Given I am Connect with:
-          | user    | password | rfc          | businessId  | systemId    |
-          | Pruebas | 10101010 | AAA010101AAA | admovil-php | admovil-php |
+          | user    | password | rfc          | systemId    |
+          | Pruebas | 10101010 | AAA010101AAA | admovil-php |
 
   Scenario: Get a Voucher
       Given I am set the Voucher as:

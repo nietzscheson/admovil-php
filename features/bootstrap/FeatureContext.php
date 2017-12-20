@@ -57,7 +57,6 @@ class FeatureContext implements Context
         foreach($table as $item){
             $credentials->setUser($item['user']);
             $credentials->setPassword($item['password']);
-            $credentials->setBusinessId($item['businessId']);
             $credentials->setSystemId($item['systemId']);
             $credentials->setRfc($item['rfc']);
         }

@@ -18,11 +18,6 @@ class Credential implements CredentialInterface
     private $systemId;
 
     /**
-     * @var string
-     */
-    private $businessId;
-
-    /**
      * @return string
      */
     public function getRfc(): string
@@ -49,21 +44,5 @@ class Credential implements CredentialInterface
     public function setSystemId(string $id): void
     {
         $this->systemId = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBusinessId(): string
-    {
-        return $this->businessId;
-    }
-
-    /**
-     * @param string $businessId
-     */
-    public function setBusinessId(string $businessId): void
-    {
-        $this->businessId = $businessId;
     }
 }
