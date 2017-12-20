@@ -49,7 +49,7 @@ class Admovil extends Connect implements AdmovilInterface
             "Moneda" => $voucher->getCurrency(),
             "TipoCambio" => $voucher->getExchangeRate(),
             "usoCFDI" => $voucher->getCFDIUse(),
-            "confirmacion" => 'XXXXXXXXXXX',
+            "confirmacion" => $voucher->getConfirmation(),
         ];
 
         try{
