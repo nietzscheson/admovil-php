@@ -12,6 +12,7 @@
 namespace spec\Nietzscheson\Admovil;
 
 use Nietzscheson\Admovil\AdmovilInterface;
+use Nietzscheson\Admovil\CredentialInterface;
 use Nietzscheson\Admovil\ItemsInterface;
 use Nietzscheson\Admovil\StampedInterface;
 use Nietzscheson\Admovil\VoucherException;
@@ -27,9 +28,8 @@ class AdmovilSpec extends ObjectBehavior
         $this->shouldHaveType(AdmovilInterface::class);
     }
 
-    function int_is_should_return_a_voucher(VoucherInterface $voucher)
+    function it_is_should_implement_a_credential_interface()
     {
-        $this->voucher($voucher)->shouldBeAnInstanceOf(VoucherResultInterface::class);
-        $this->voucher($voucher)->shouldBeAnInstanceOf(VoucherException::class);
+        $this->shouldHaveType(CredentialInterface::class);
     }
 }

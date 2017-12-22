@@ -13,7 +13,9 @@
         "php": "^7.1",
         "doctrine/common": "^2.8",
         "behat/behat": "^3.4",
-        "zendframework/zend-soap": "^2.6"
+        "zendframework/zend-soap": "^2.6",
+        "symfony/options-resolver": "^4.0",
+        "fzaninotto/faker": "^1.7"
     },
     "require-dev": {
         "phpspec/phpspec": "^4.0"

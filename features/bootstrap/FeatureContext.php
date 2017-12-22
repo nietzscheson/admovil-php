@@ -8,6 +8,11 @@ use Nietzscheson\Admovil\Credential;
 use Nietzscheson\Admovil\Payment;
 use Nietzscheson\Admovil\Businessname;
 use Nietzscheson\Admovil\Address;
+use Nietzscheson\Admovil\Item;
+use Nietzscheson\Admovil\Unit;
+use Nietzscheson\Admovil\Taxes;
+use Nietzscheson\Admovil\Items;
+use Nietzscheson\Admovil\VoucherResult;
 use Nietzscheson\Admovil\VoucherException;
 
 class FeatureContext implements Context
@@ -37,6 +42,31 @@ class FeatureContext implements Context
      */
     private $address;
 
+    /**
+     * @var Item
+     */
+    private $item;
+
+    /**
+     * @var Item
+     */
+    private $unit;
+
+    /**
+     * @var Taxes
+     */
+    private $taxes;
+
+    /**
+     * @var Items
+     */
+    private $items;
+
+    /**
+     * @var VoucherResult
+     */
+    private $voucherResult;
+
     public function __construct()
     {
         $this->admovil = new Admovil();
@@ -45,6 +75,13 @@ class FeatureContext implements Context
         $this->businessname = new Businessname();
         $this->businessname = new Businessname();
         $this->address = new Address();
+
+        $this->item = new Item();
+        $this->unit = new Unit();
+        $this->taxes = new Taxes();
+        $this->items = new Items();
+
+        $this->voucherResult = new VoucherResult();
     }
 
     /**
@@ -80,22 +117,6 @@ class FeatureContext implements Context
             $this->voucher->setCfdiUse($item['cfdiUse']);
             $this->voucher->setConfirmation($item['confirmation']);
         }
-    }
-
-    /**
-     * @Given I am set the VoucherType as :voucherType
-     */
-    public function iAmSetTheVoucherTypeAs($voucherType)
-    {
-        $this->voucher->setVoucherType($voucherType);
-    }
-
-    /**
-     * @Given I am set the BranchOffice as :branchOfficce
-     */
-    public function iAmSetTheBranchOfficeAs($branchOfficce)
-    {
-        $this->voucher->setBranchOffice($branchOfficce);
     }
 
     /**
@@ -157,9 +178,60 @@ class FeatureContext implements Context
     public function iGetAVoucher()
     {
         try{
-            echo "The voucher is: " . $this->admovil->voucher($this->voucher)->getVoucher();
+
+            $this->voucherResult->setVoucher($this->admovil->voucher($this->voucher)->getVoucher());
+
+            echo "The voucher is: " . $this->voucherResult->getVoucher();
         }catch (VoucherException $e){
             echo $e->getMessage();
         }
+    }
+
+    /**
+     * @Given I set the Invoice Details as:
+     */
+    public function iSetTheInvoiceDetails(TableNode $table)
+    {
+
+//        foreach($table as $item){
+//            $this->item->setVoucher($this->voucherResult);
+//            $this->item->setProductOrServiceKey($item['product_or_service_key']);
+//            $this->item->setCertificateNumber($item['certificate_number']);
+//            $this->item->setQuantity($item['quantity']);
+//            $this->item->setDescription($item['description']);
+//            $this->item->setIdentificationNumber($item['identification_number']);
+//
+//                $this->unit->setName($item['unit_name']);
+//                $this->unit->setKey($item['unit_key']);
+//                $this->unit->setValue($item['unit_value']);
+//
+//            $this->item->setUnit($this->unit);
+//            $this->item->setDiscount($item['discount']);
+//
+//                $this->taxes->setTaxBase($item['tax_base']);
+//                $this->taxes->setVatTransfer($item['vat_transfer']);
+//                $this->taxes->setVatWithheld($item['vat_withheld']);
+//                $this->taxes->setIepsTransfer($item['ieps_transfer']);
+//                $this->taxes->setIepsWithheld($item['ieps_withheld']);
+//                $this->taxes->setIsr($item['isr']);
+//
+//            $this->item->setTaxes($this->taxes);
+//            $this->item->setPedimentNumber($item['pediment_number']);
+//            $this->item->setPredialAccount($item['account_predial']);
+//            $this->item->setNotes($item['notes']);
+//
+//            $this->items->addItem($this->item);
+//
+//            $this->admovil->detail($this->items);
+//        }
+
+    }
+
+    /**
+     * @Given I want to Bill
+     */
+    public function iWantToBill()
+    {
+        $this->admovil->stamped($this->voucherResult);
     }
 }
