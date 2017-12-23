@@ -9,8 +9,8 @@ use Nietzscheson\Admovil\Fixture\Factory\PaymentFactory;
 use Nietzscheson\Admovil\Fixture\Factory\BusinessnameFactory;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
 use Nietzscheson\Admovil\Fixture\Factory\AddressFactory;
-use Nietzscheson\Admovil\Voucher\VoucherResult;
-use Nietzscheson\Admovil\Voucher\VoucherException;
+use Nietzscheson\Admovil\CFDI\CFDIResult;
+use Nietzscheson\Admovil\CFDI\CFDIException;
 use Nietzscheson\Admovil\Fixture\Factory\ItemFactory;
 use Nietzscheson\Admovil\Fixture\Factory\UnitFactory;
 use Nietzscheson\Admovil\Fixture\Factory\TaxesFactory;
@@ -54,24 +54,24 @@ class FeatureContext extends AbstractFeatureContext
     private $items;
 
     /**
-     * @var VoucherResult
+     * @var CFDIResult
      */
     private $voucherResult;
 
     public function __construct()
     {
-        $this->voucherResult = new VoucherResult();
+        $this->voucherResult = new CFDIResult();
         $this->items = new Items();
         $this->cfdiDetail = new CFDIDetail();
         $this->cfdiCheckIn = new CFDICheckIn();
     }
 
     /**
-     * @Given I am Connect with:
+     * @Given I am Connect with Admovil Service
      */
-    public function iAmConnectWith(TableNode $table)
+    public function iAmConnectWithAdmovilService()
     {
-        $this->cfdi = CFDIFactory::create($this->singleItemsTable($table));
+        $this->cfdi = CFDIFactory::create();
     }
 
     /**
@@ -118,7 +118,7 @@ class FeatureContext extends AbstractFeatureContext
             $this->voucherResult->setVoucher($this->cfdi->execute($this->voucher)->getVoucher());
 
             echo "The voucher is: " . $this->voucherResult->getVoucher();
-        }catch (VoucherException $e){
+        }catch (CFDIException $e){
             echo $e->getMessage();
         }
     }
@@ -145,7 +145,7 @@ class FeatureContext extends AbstractFeatureContext
 
             $item->setUnit(UnitFactory::create(['name' => $i['unit_name'], 'key' => $i['unit_key'], 'value' => $i['unit_value']]));
 
-            $item->setTaxes(TaxesFactory::create(['tax_base' => $i['tax_base'], 'vat_transfer' => $i['vat_transfer'], 'vat_withheld' => $i['vat_withheld'], 'ieps_transfer' => $i['ieps_transfer'], 'ieps_withheld' => $i['ieps_withheld'], 'isr' => $i['isr']]));
+            $item->setTaxes(TaxesFactory::create(['vat_transfer' => $i['vat_transfer'], 'vat_withheld' => $i['vat_withheld'], 'ieps_transfer' => $i['ieps_transfer'], 'ieps_withheld' => $i['ieps_withheld'], 'isr' => $i['isr']]));
 
             $this->items->addItem($item);
         }
@@ -159,6 +159,9 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iWantToBill()
     {
-        CFDICheckInFactory::create(['voucher' => $this->voucherResult->getVoucher()]);
+        $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult);
+
+        echo "Voucher: " . $cfdiCheckin->getVoucher() . '<br />';
+        echo "UUID: " . $cfdiCheckin->getUUID();
     }
 }

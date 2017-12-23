@@ -7,19 +7,18 @@
  * file that was distributed with this source code .
  */
 
-namespace Nietzscheson\Admovil\Voucher;
+namespace Nietzscheson\Admovil\CFDI;
 
-interface VoucherResultInterface
+interface CFDICheckinResultInterface extends CFDIResultInterface
 {
 
     /**
      * @return string
      */
-    public function getVoucher(): string;
+    public function getUUID(): string;
 
     /**
      * @param string
      */
-    public function setVoucher(string $voucher): void;
-
+    public function setUUID(string $uuid): void;
 }

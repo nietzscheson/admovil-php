@@ -7,9 +7,9 @@
  * file that was distributed with this source code .
  */
 
-namespace Nietzscheson\Admovil\Voucher;
+namespace Nietzscheson\Admovil\CFDI;
 
-class VoucherResult implements VoucherResultInterface
+class CFDIResult implements CFDIResultInterface
 {
 
     /**

@@ -14,7 +14,7 @@ namespace Nietzscheson\Admovil\Fixture\Factory;
 interface CredentialExampleFactoryInterface
 {
     const USER = 'Pruebas';
-    const PASS = '1010101010';
+    const PASS = '10101010';
     const SYSTEMID = 'admovil-php';
     const RFC = 'AAA010101AAA';
 }

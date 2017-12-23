@@ -11,12 +11,8 @@
 
 namespace Nietzscheson\Admovil\Fixture\Factory;
 
-use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\CFDI\CFDI;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
-use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\Voucher\VoucherResult;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CFDICheckInFactory extends AdmovilFactory
@@ -30,7 +26,7 @@ class CFDICheckInFactory extends AdmovilFactory
         $cfdiCheckiIn = new CFDICheckIn();
 
         $optionsResolver = new OptionsResolver();
-        self::configureOptions($optionsResolver);
+        parent::configureOptions($optionsResolver);
 
         $options = $optionsResolver->resolve($options);
 
@@ -39,22 +35,6 @@ class CFDICheckInFactory extends AdmovilFactory
         $cfdiCheckiIn->setRfc($options['rfc']);
         $cfdiCheckiIn->setSystemId($options['system_id']);
 
-        $voucherResult = new VoucherResult();
-
-        $voucherResult->setVoucher($options['voucher']);
-
-        $cfdiCheckiIn->execute($voucherResult);
-
         return $cfdiCheckiIn;
     }
-
-    protected static function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver
-          ->setDefault('voucher', '')
-        ;
-
-        parent::configureOptions($resolver);
-    }
-
 }

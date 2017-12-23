@@ -1,10 +1,10 @@
 <?php
 
-namespace Nietzscheson\Admovil\Voucher;
+namespace Nietzscheson\Admovil\CFDI;
 
 use RuntimeException;
 
-class VoucherException extends RuntimeException
+class CFDICheckinException extends CFDIException
 {
     public function getMessageCustomer()
     {
