@@ -9,6 +9,7 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
+use Exception;
 use Nietzscheson\Admovil\Admovil;
 
 class CFDICheckIn extends Admovil implements CFDICheckInInterface
@@ -17,7 +18,7 @@ class CFDICheckIn extends Admovil implements CFDICheckInInterface
     /**
      * {@inheritdoc}
      */
-    public function execute(CFDIResultInterface $voucher): void
+    public function execute(CFDIResultInterface $voucher): ?CFDICheckinResultInterface
     {
 
         $timbrar = [
@@ -26,6 +27,19 @@ class CFDICheckIn extends Admovil implements CFDICheckInInterface
             "IdComprobante" => (int) $voucher->getVoucher()
         ];
 
-        $this->client->timbrar($timbrar);
+        try{
+
+            $cfdiCheckinResult = new CFDICheckinResult();
+
+            $timbrar = $this->client->timbrar($timbrar);
+
+            $cfdiCheckinResult->setVoucher($timbrar->timbrarResult->IdComprobante);
+            $cfdiCheckinResult->setUuid($timbrar->timbrarResult->UUID);
+
+            return $cfdiCheckinResult;
+
+        }catch(Exception $e){
+            throw new CFDICheckinException();
+        }
     }
 }

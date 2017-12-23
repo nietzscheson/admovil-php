@@ -32,7 +32,7 @@ class CFDIDetail extends Admovil implements CFDIDetailInterface
                 "Unidad" => $item->getUnit()->getName(),
                 "ValorUnitario" => $item->getUnit()->getValue(),
                 "descuento" => $item->getDiscount(),
-                "baseImpuesto" => $item->getTaxes()->getTaxBase(),
+                "baseImpuesto" => ($item->getUnit()->getValue() * $item->getQuantity()) - $item->getDiscount(),
                 "transladodoIVA" => $item->getTaxes()->getVatTransfer(),
                 "trasladodoIEPS" => $item->getTaxes()->getIEPSTransfer(),
                 "retenidoIVA" => $item->getTaxes()->getVATWithheld(),

@@ -9,16 +9,16 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
-interface CFDIResultInterface
+interface CFDICheckinResultInterface extends CFDIResultInterface
 {
 
     /**
      * @return string
      */
-    public function getVoucher(): string;
+    public function getUUID(): string;
 
     /**
      * @param string
      */
-    public function setVoucher(string $voucher): void;
+    public function setUUID(string $uuid): void;
 }

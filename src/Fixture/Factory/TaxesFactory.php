@@ -30,7 +30,6 @@ class TaxesFactory extends AbstractFactory
 
         $options = $optionsResolver->resolve($options);
 
-        $taxes->setTaxBase($options['tax_base']);
         $taxes->setVatTransfer($options['vat_transfer']);
         $taxes->setVatWithheld($options['vat_withheld']);
         $taxes->setIepsTransfer($options['ieps_transfer']);
@@ -46,7 +45,6 @@ class TaxesFactory extends AbstractFactory
     protected static function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('tax_base', '002')
             ->setDefault('vat_transfer', '16')
             ->setDefault('vat_withheld', '16')
             ->setDefault('ieps_transfer', '0')

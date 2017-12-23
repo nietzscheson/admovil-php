@@ -145,7 +145,7 @@ class FeatureContext extends AbstractFeatureContext
 
             $item->setUnit(UnitFactory::create(['name' => $i['unit_name'], 'key' => $i['unit_key'], 'value' => $i['unit_value']]));
 
-            $item->setTaxes(TaxesFactory::create(['tax_base' => $i['tax_base'], 'vat_transfer' => $i['vat_transfer'], 'vat_withheld' => $i['vat_withheld'], 'ieps_transfer' => $i['ieps_transfer'], 'ieps_withheld' => $i['ieps_withheld'], 'isr' => $i['isr']]));
+            $item->setTaxes(TaxesFactory::create(['vat_transfer' => $i['vat_transfer'], 'vat_withheld' => $i['vat_withheld'], 'ieps_transfer' => $i['ieps_transfer'], 'ieps_withheld' => $i['ieps_withheld'], 'isr' => $i['isr']]));
 
             $this->items->addItem($item);
         }
@@ -159,6 +159,9 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iWantToBill()
     {
-        CFDICheckInFactory::create(['voucher' => $this->voucherResult->getVoucher()]);
+        $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult);
+
+        echo "Voucher: " . $cfdiCheckin->getVoucher() . '<br />';
+        echo "UUID: " . $cfdiCheckin->getUUID();
     }
 }
