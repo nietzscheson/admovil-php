@@ -19,6 +19,7 @@ use Nietzscheson\Admovil\CFDI\CFDIDetailInterface;
 use Nietzscheson\Admovil\CFDI\CFDIDetail;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
+use Nietzscheson\Admovil\Fixture\Factory\CFDICheckInFactory;
 
 class FeatureContext extends AbstractFeatureContext
 {
@@ -158,6 +159,6 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iWantToBill()
     {
-        $this->cfdiCheckIn->execute($this->voucherResult);
+        CFDICheckInFactory::create(['voucher' => $this->voucherResult->getVoucher()]);
     }
 }

@@ -30,7 +30,7 @@ class CFDI extends Admovil implements CFDIInterface
         $business = $voucher->getBusinessName();
         $adddress = $business->getAddress();
 
-        $voucher = [
+        $set_cfdi33 = [
             "user" => $this->getUser(),
             "password" => $this->getPassword(),
             "Tipo" => $voucher->getBillingType(),
@@ -69,13 +69,12 @@ class CFDI extends Admovil implements CFDIInterface
 
             $voucherResult = new VoucherResult();
 
-            $voucherResult->setVoucher($this->client->set_cfdi33($voucher)->set_cfdi33Result);
+            $voucherResult->setVoucher($this->client->set_cfdi33($set_cfdi33)->set_cfdi33Result);
 
             return $voucherResult;
 
         }catch(Exception $e){
             throw new VoucherException($e->getMessage(), $e->getCode());
         }
-
     }
 }
