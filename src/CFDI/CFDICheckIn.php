@@ -10,7 +10,6 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\Voucher\VoucherResultInterface;
 
 class CFDICheckIn extends Admovil implements CFDICheckInInterface
 {
@@ -18,7 +17,7 @@ class CFDICheckIn extends Admovil implements CFDICheckInInterface
     /**
      * {@inheritdoc}
      */
-    public function execute(VoucherResultInterface $voucher): void
+    public function execute(CFDIResultInterface $voucher): void
     {
 
         $timbrar = [

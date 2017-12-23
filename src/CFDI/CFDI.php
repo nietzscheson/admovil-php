@@ -13,17 +13,14 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\Voucher\VoucherException;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
-use Nietzscheson\Admovil\Voucher\VoucherResult;
-use Nietzscheson\Admovil\Voucher\VoucherResultInterface;
 
 class CFDI extends Admovil implements CFDIInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function execute(VoucherInterface $voucher): ?VoucherResultInterface
+    public function execute(VoucherInterface $voucher): ?CFDIResultInterface
     {
 
         $payment = $voucher->getPayment();
@@ -67,14 +64,14 @@ class CFDI extends Admovil implements CFDIInterface
 
         try{
 
-            $voucherResult = new VoucherResult();
+            $voucherResult = new CFDIResult();
 
             $voucherResult->setVoucher($this->client->set_cfdi33($set_cfdi33)->set_cfdi33Result);
 
             return $voucherResult;
 
         }catch(Exception $e){
-            throw new VoucherException($e->getMessage(), $e->getCode());
+            throw new CFDIException($e->getMessage(), $e->getCode());
         }
     }
 }

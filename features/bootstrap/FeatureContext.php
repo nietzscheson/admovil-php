@@ -9,8 +9,8 @@ use Nietzscheson\Admovil\Fixture\Factory\PaymentFactory;
 use Nietzscheson\Admovil\Fixture\Factory\BusinessnameFactory;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
 use Nietzscheson\Admovil\Fixture\Factory\AddressFactory;
-use Nietzscheson\Admovil\Voucher\VoucherResult;
-use Nietzscheson\Admovil\Voucher\VoucherException;
+use Nietzscheson\Admovil\CFDI\CFDIResult;
+use Nietzscheson\Admovil\CFDI\CFDIException;
 use Nietzscheson\Admovil\Fixture\Factory\ItemFactory;
 use Nietzscheson\Admovil\Fixture\Factory\UnitFactory;
 use Nietzscheson\Admovil\Fixture\Factory\TaxesFactory;
@@ -54,13 +54,13 @@ class FeatureContext extends AbstractFeatureContext
     private $items;
 
     /**
-     * @var VoucherResult
+     * @var CFDIResult
      */
     private $voucherResult;
 
     public function __construct()
     {
-        $this->voucherResult = new VoucherResult();
+        $this->voucherResult = new CFDIResult();
         $this->items = new Items();
         $this->cfdiDetail = new CFDIDetail();
         $this->cfdiCheckIn = new CFDICheckIn();
@@ -118,7 +118,7 @@ class FeatureContext extends AbstractFeatureContext
             $this->voucherResult->setVoucher($this->cfdi->execute($this->voucher)->getVoucher());
 
             echo "The voucher is: " . $this->voucherResult->getVoucher();
-        }catch (VoucherException $e){
+        }catch (CFDIException $e){
             echo $e->getMessage();
         }
     }

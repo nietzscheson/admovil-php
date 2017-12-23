@@ -11,12 +11,9 @@
 
 namespace Nietzscheson\Admovil\Fixture\Factory;
 
-use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\CFDI\CFDI;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
-use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\Voucher\VoucherResult;
+use Nietzscheson\Admovil\CFDI\CFDIResult;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CFDICheckInFactory extends AdmovilFactory
@@ -39,7 +36,7 @@ class CFDICheckInFactory extends AdmovilFactory
         $cfdiCheckiIn->setRfc($options['rfc']);
         $cfdiCheckiIn->setSystemId($options['system_id']);
 
-        $voucherResult = new VoucherResult();
+        $voucherResult = new CFDIResult();
 
         $voucherResult->setVoucher($options['voucher']);
 

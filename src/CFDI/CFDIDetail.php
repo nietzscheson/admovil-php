@@ -11,14 +11,13 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\Admovil;
 use Nietzscheson\Admovil\Item\ItemsInterface;
-use Nietzscheson\Admovil\Voucher\VoucherResultInterface;
 
 class CFDIDetail extends Admovil implements CFDIDetailInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function execute(ItemsInterface $items, VoucherResultInterface $voucher): void
+    public function execute(ItemsInterface $items, CFDIResultInterface $voucher): void
     {
         foreach($items->getItems() as $item){
 

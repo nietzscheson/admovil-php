@@ -17,7 +17,7 @@ interface CFDIDetailInterface extends AdmovilInterface
 {
     /**
      * @param ItemsInterface $items
-     * @param VoucherResultInterface $voucher
+     * @param CFDIResultInterface $voucher
      */
-    public function execute(ItemsInterface $items, VoucherResultInterface $voucher): void;
+    public function execute(ItemsInterface $items, CFDIResultInterface $voucher): void;
 }
