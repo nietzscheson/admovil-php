@@ -1,46 +1,40 @@
 <?php
 
-use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
-use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\Voucher;
-use Nietzscheson\Admovil\Credential;
-use Nietzscheson\Admovil\Payment;
-use Nietzscheson\Admovil\Businessname;
-use Nietzscheson\Admovil\Address;
-use Nietzscheson\Admovil\Item;
-use Nietzscheson\Admovil\Unit;
-use Nietzscheson\Admovil\Taxes;
-use Nietzscheson\Admovil\Items;
-use Nietzscheson\Admovil\VoucherResult;
-use Nietzscheson\Admovil\VoucherException;
+use Nietzscheson\Admovil\Fixture\Factory\CFDIFactory;
+use Nietzscheson\Admovil\Fixture\Factory\VoucherFactory;
+use Nietzscheson\Admovil\CFDI\CFDIInterface;
+use Nietzscheson\Admovil\Voucher\VoucherInterface;
+use Nietzscheson\Admovil\Fixture\Factory\PaymentFactory;
+use Nietzscheson\Admovil\Fixture\Factory\BusinessnameFactory;
+use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
+use Nietzscheson\Admovil\Fixture\Factory\AddressFactory;
+use Nietzscheson\Admovil\Voucher\VoucherResult;
+use Nietzscheson\Admovil\Voucher\VoucherException;
+use Nietzscheson\Admovil\Voucher\Payment\PaymentInterface;
+use Nietzscheson\Admovil\Voucher\Businessname\AddressInterface;
 
-class FeatureContext implements Context
+class FeatureContext extends AbstractFeatureContext
 {
     /**
-     * @var Admovil
+     * @var CFDIInterface
      */
-    private $admovil;
+    private $cfdi;
 
     /**
-     * @var Voucher
+     * @var VoucherInterface
      */
     private $voucher;
 
     /**
-     * @var Payment
+     * @var PaymentInterface
      */
     private $payment;
 
     /**
-     * @var Businessname
+     * @var BusinessnameInterface
      */
     private $businessname;
-
-    /**
-     * @var Address
-     */
-    private $address;
 
     /**
      * @var Item
@@ -69,17 +63,10 @@ class FeatureContext implements Context
 
     public function __construct()
     {
-        $this->admovil = new Admovil();
-        $this->voucher = new Voucher();
-        $this->payment = new Payment();
-        $this->businessname = new Businessname();
-        $this->businessname = new Businessname();
-        $this->address = new Address();
-
-        $this->item = new Item();
-        $this->unit = new Unit();
-        $this->taxes = new Taxes();
-        $this->items = new Items();
+//        $this->item = new Item();
+//        $this->unit = new Unit();
+//        $this->taxes = new Taxes();
+//        $this->items = new Items();
 
         $this->voucherResult = new VoucherResult();
     }
@@ -89,34 +76,20 @@ class FeatureContext implements Context
      */
     public function iAmConnectWith(TableNode $table)
     {
-        $credentials = new Credential();
+        $this->cfdi = new CFDIFactory();
 
-        foreach($table as $item){
-            $credentials->setUser($item['user']);
-            $credentials->setPassword($item['password']);
-            $credentials->setSystemId($item['systemId']);
-            $credentials->setRfc($item['rfc']);
-        }
+        $this->cfdi = $this->cfdi->create($this->singleItemsTable($table));
 
-        $this->admovil->setCredential($credentials);
     }
 
     /**
      * @Given I am set the Voucher as:
      */
-    public function iAmSetTheBillingTypeAs(TableNode $table)
+    public function iAmSetTheVoucherAs(TableNode $table)
     {
+        $this->voucher = new VoucherFactory();
 
-        foreach($table as $item){
-            $this->voucher->setBillingType($item['billingType']);
-            $this->voucher->setVoucherType($item['voucherType']);
-            $this->voucher->setBranchOffice($item['branchoffice']);
-            $this->voucher->setNotes($item['notes']);
-            $this->voucher->setCurrency($item['currency']);
-            $this->voucher->setExchangeRate($item['exchangeRate']);
-            $this->voucher->setCfdiUse($item['cfdiUse']);
-            $this->voucher->setConfirmation($item['confirmation']);
-        }
+        $this->voucher = $this->voucher->create($this->singleItemsTable($table));
     }
 
     /**
@@ -124,14 +97,9 @@ class FeatureContext implements Context
      */
     public function iAmSetThePaymentAs(TableNode $table)
     {
-        foreach($table as $item){
-            $this->payment->setAccount($item['account']);
-            $this->payment->setCondition($item['condition']);
-            $this->payment->setForm($item['form']);
-            $this->payment->setMethod($item['method']);
-        }
+        $this->payment = new PaymentFactory();
 
-        $this->voucher->setPayment($this->payment);
+        $this->voucher->setPayment($this->payment->create($this->singleItemsTable($table)));
     }
 
     /**
@@ -139,14 +107,9 @@ class FeatureContext implements Context
      */
     public function iAmSetTheBusinessnameAs(TableNode $table)
     {
-        foreach($table as $item){
-            $this->businessname->setId($item['id']);
-            $this->businessname->setName($item['name']);
-            $this->businessname->setRFC($item['rfc']);
-            $this->businessname->setTaxId($item['taxId']);
-            $this->businessname->setReference($item['reference']);
-            $this->businessname->setEmail($item['email']);
-        }
+        $this->businessname = new BusinessnameFactory();
+
+        $this->businessname = $this->businessname->create($this->singleItemsTable($table));
 
         $this->voucher->setBusinessName($this->businessname);
     }
@@ -156,20 +119,9 @@ class FeatureContext implements Context
      */
     public function iAmSetTheAddressAs(TableNode $table)
     {
-        foreach($table as $item){
-            $this->address->setStreet($item['street']);
-            $this->address->setCodePostal($item['codePostal']);
-            $this->address->setState($item['state']);
-            $this->address->setCity($item['city']);
-            $this->address->setTown($item['town']);
-            $this->address->setNeighborhood($item['neighborhood']);
-            $this->address->setExteriorNumber($item['exteriorNumber']);
-            $this->address->setInteriorNumber($item['interiorNumber']);
-            $this->address->setTelephone($item['telephone']);
-            $this->address->setFiscalResidency($item['fiscalResidency']);
-        }
+        $address = new AddressFactory();
 
-        $this->businessname->setAddress($this->address);
+        $this->businessname->setAddress($address->create($this->singleItemsTable($table)));
     }
 
     /**
@@ -179,7 +131,7 @@ class FeatureContext implements Context
     {
         try{
 
-            $this->voucherResult->setVoucher($this->admovil->voucher($this->voucher)->getVoucher());
+            $this->voucherResult->setVoucher($this->cfdi->execute($this->voucher)->getVoucher());
 
             echo "The voucher is: " . $this->voucherResult->getVoucher();
         }catch (VoucherException $e){
@@ -232,6 +184,6 @@ class FeatureContext implements Context
      */
     public function iWantToBill()
     {
-        $this->admovil->stamped($this->voucherResult);
+//        $this->admovil->stamped($this->voucherResult);
     }
 }

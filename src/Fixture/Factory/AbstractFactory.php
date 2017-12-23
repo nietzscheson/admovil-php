@@ -30,4 +30,5 @@ abstract class AbstractFactory implements FactoryInterface
     }
 
     abstract protected function configureOptions(OptionsResolver $resolver): void;
+
 }

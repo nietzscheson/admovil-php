@@ -12,6 +12,7 @@
 namespace Nietzscheson\Admovil\Fixture\Factory;
 
 use Nietzscheson\Admovil\Voucher\Businessname\Businessname;
+use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,7 +22,7 @@ class BusinessnameFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = [])
+    public function create(array $options = []): BusinessnameInterface
     {
         $businessname = new Businessname();
 

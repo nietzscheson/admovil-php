@@ -13,6 +13,7 @@ namespace Nietzscheson\Admovil\Fixture\Factory;
 
 use Nietzscheson\Admovil\Voucher\Payment\Payment;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentFormInterface;
+use Nietzscheson\Admovil\Voucher\Payment\PaymentInterface;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentMethodInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,7 +23,7 @@ class PaymentFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = [])
+    public function create(array $options = []): PaymentInterface
     {
         $payment = new Payment();
 

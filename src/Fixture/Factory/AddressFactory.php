@@ -12,7 +12,7 @@
 namespace Nietzscheson\Admovil\Fixture\Factory;
 
 use Nietzscheson\Admovil\Voucher\Businessname\Address;
-use Nietzscheson\Admovil\Voucher\Businessname\Businessname;
+use Nietzscheson\Admovil\Voucher\Businessname\AddressInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AddressFactory extends AbstractFactory
@@ -21,7 +21,7 @@ class AddressFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = [])
+    public function create(array $options = []): AddressInterface
     {
         $address = new Address();
 
@@ -29,7 +29,7 @@ class AddressFactory extends AbstractFactory
 
         $address->setStreet($options['street']);
         $address->setCodePostal($options['code_postal']);
-        $address->setNeighborhood($options['neightborhood']);
+        $address->setNeighborhood($options['neighborhood']);
         $address->setState($options['state']);
         $address->setCity($options['city']);
         $address->setTown($options['town']);
@@ -49,7 +49,7 @@ class AddressFactory extends AbstractFactory
         $resolver
             ->setDefault('street', $this->faker->streetName)
             ->setDefault('code_postal', 77500)
-            ->setDefault('neightborhood', 'Neightborhood')
+            ->setDefault('neighborhood', 'Neighborhood')
             ->setDefault('state', 'The State')
             ->setDefault('city', $this->faker->city)
             ->setDefault('town', 'The Town')

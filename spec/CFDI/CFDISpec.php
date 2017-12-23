@@ -34,9 +34,9 @@ class CFDISpec extends ObjectBehavior
         $this->setSystemId('admovil-php');
         $this->setRFC('AAA010101AAA');
 
-        $voucher->getBillingType()->willReturn('BillingType');
+        $voucher->getBillingType()->willReturn('FA');
         $voucher->getVoucherType()->willReturn('VoucherType');
-        $voucher->getBranchOffice()->willReturn('BranchOffice');
+        $voucher->getBranchOffice()->willReturn('');
         $voucher->getNotes()->willReturn('The notes');
         $voucher->getCurrency()->willReturn('MEX');
         $voucher->getExchangeRate()->willReturn('1');
