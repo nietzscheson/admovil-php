@@ -22,11 +22,14 @@ class CFDIFactory extends AdmovilFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = []): CFDIInterface
+    public static function create(array $options = []): CFDIInterface
     {
         $cfdi = new CFDI();
 
-        $options = $this->optionsResolver->resolve($options);
+        $optionsResolver = new OptionsResolver();
+        parent::configureOptions($optionsResolver);
+
+        $options = $optionsResolver->resolve($options);
 
         $cfdi->setUser($options['user']);
         $cfdi->setPassword($options['password']);

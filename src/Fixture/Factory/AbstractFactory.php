@@ -13,22 +13,7 @@ namespace Nietzscheson\Admovil\Fixture\Factory;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use Faker\Factory;
-
 abstract class AbstractFactory implements FactoryInterface
 {
-
-    protected $faker;
-    protected $optionsResolver;
-
-    public function __construct()
-    {
-        $this->faker = Factory::create();
-        $this->optionsResolver = new OptionsResolver();
-
-        $this->configureOptions($this->optionsResolver);
-    }
-
-    abstract protected function configureOptions(OptionsResolver $resolver): void;
-
+    abstract protected static function configureOptions(OptionsResolver $resolver): void;
 }

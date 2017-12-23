@@ -20,6 +20,6 @@ interface FactoryInterface
      *
      * @return object
      */
-    public function create(array $options = []);
+    public static function create(array $options = []);
 
 }

@@ -23,11 +23,14 @@ class PaymentFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = []): PaymentInterface
+    public static function create(array $options = []): PaymentInterface
     {
         $payment = new Payment();
 
-        $options = $this->optionsResolver->resolve($options);
+        $optionsResolver = new OptionsResolver();
+        self::configureOptions($optionsResolver);
+
+        $options = $optionsResolver->resolve($options);
 
         $payment->setCondition($options['condition']);
         $payment->setForm($options['form']);
@@ -40,7 +43,7 @@ class PaymentFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    protected function configureOptions(OptionsResolver $resolver): void
+    protected static function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
             ->setDefault('condition', 'The condition')

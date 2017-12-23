@@ -22,11 +22,14 @@ class VoucherFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = []): VoucherInterface
+    public static function create(array $options = []): VoucherInterface
     {
         $voucher = new Voucher();
 
-        $options = $this->optionsResolver->resolve($options);
+        $optionsResolver = new OptionsResolver();
+        self::configureOptions($optionsResolver);
+
+        $options = $optionsResolver->resolve($options);
 
         $voucher->setBillingType($options['billing_type']);
         $voucher->setVoucherType($options['voucher_type']);
@@ -37,20 +40,16 @@ class VoucherFactory extends AbstractFactory
         $voucher->setConfirmation($options['confirmation']);
         $voucher->setNotes($options['notes']);
 
-//        $payment = new PaymentFactory();
-//        $businessname = new BusinessnameFactory();
-//
-//        $voucher->setPayment($payment->create());
-//        $voucher->setBusinessName($businessname->create());
+        $voucher->setPayment(PaymentFactory::create());
+        $voucher->setBusinessName(BusinessnameFactory::create());
         
         return $voucher;
-
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptions(OptionsResolver $resolver): void
+    protected static function configureOptions(OptionsResolver $resolver): void
     {
 
         $resolver

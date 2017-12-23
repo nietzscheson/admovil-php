@@ -35,7 +35,7 @@ class CFDISpec extends ObjectBehavior
         $this->setRFC('AAA010101AAA');
 
         $voucher->getBillingType()->willReturn('FA');
-        $voucher->getVoucherType()->willReturn('VoucherType');
+        $voucher->getVoucherType()->willReturn('I');
         $voucher->getBranchOffice()->willReturn('');
         $voucher->getNotes()->willReturn('The notes');
         $voucher->getCurrency()->willReturn('MEX');

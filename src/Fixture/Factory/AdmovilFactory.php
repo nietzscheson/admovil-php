@@ -21,24 +21,12 @@ class AdmovilFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = [])
-    {
-        $admovil = new Admovil();
-
-        $options = $this->optionsResolver->resolve($options);
-
-        $admovil->setUser($options['user']);
-        $admovil->setPassword($options['password']);
-        $admovil->setRfc($options['rfc']);
-        $admovil->setSystemId($options['system_id']);
-
-        return $admovil;
-    }
+    public static function create(array $options = []){}
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptions(OptionsResolver $resolver): void
+    protected static function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
             ->setDefault('user', 'Pruebas')

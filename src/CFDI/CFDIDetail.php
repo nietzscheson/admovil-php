@@ -22,27 +22,29 @@ class CFDIDetail extends Admovil implements CFDIDetailInterface
     {
         foreach($items->getItems() as $item){
 
-            $this->client->set_cfdi33_detalle([
-              "idComprobante" => $voucher->getVoucher(),
-              "ClaveProdServ" => $item->getProductOrServiceKey(),
-              "NoPartida" => $item->getCertificateNumber(),
-              "cantidad" => $item->getQuantity(),
-              "descripcion" => $item->getDescription(),
-              "NoIdentificacion" => $item->getIdentificationNumber(),
-              "claveUnidad" => $item->getUnit()->getKey(),
-              "unidad" => $item->getUnit()->getName(),
-              "ValorUnitario" => $item->getUnit()->getValue(),
-              "descuento" => $item->getDiscount(),
-              "baseImpuesto" => $item->getTaxes()->getTaxBase(),
-              "transladodoIVA" => $item->getTaxes()->getVatTransfer(),
-              "trasladodoIEPS" => $item->getTaxes()->getIEPSTransfer(),
-              "retenidoIVA" => $item->getTaxes()->getVATWithheld(),
-              "retenidoIEPS" => $item->getTaxes()->getIEPSWithheld(),
-              "retenidoISR" => $item->getTaxes()->getIsr(),
-              "NumeroPedimento" => $item->getPedimentNumber(),
-              "CuentaPredial" => $item->getPredialAccount(),
-              "Notas" => $item->getNotes(),
-            ]);
+            $set_cfdi33_detalle = [
+                "idComprobante" => $voucher->getVoucher(),
+                "ClaveProdServ" => $item->getProductOrServiceKey(),
+                "NoPartida" => $item->getCertificateNumber(),
+                "cantidad" => $item->getQuantity(),
+                "descripcion" => $item->getDescription(),
+                "NoIdentificacion" => $item->getIdentificationNumber(),
+                "claveUnidad" => $item->getUnit()->getKey(),
+                "unidad" => $item->getUnit()->getName(),
+                "ValorUnitario" => $item->getUnit()->getValue(),
+                "descuento" => $item->getDiscount(),
+                "baseImpuesto" => $item->getTaxes()->getTaxBase(),
+                "transladodoIVA" => $item->getTaxes()->getVatTransfer(),
+                "trasladodoIEPS" => $item->getTaxes()->getIEPSTransfer(),
+                "retenidoIVA" => $item->getTaxes()->getVATWithheld(),
+                "retenidoIEPS" => $item->getTaxes()->getIEPSWithheld(),
+                "retenidoISR" => $item->getTaxes()->getIsr(),
+                "NumeroPedimento" => $item->getPedimentNumber(),
+                "CuentaPredial" => $item->getPredialAccount(),
+                "Notas" => $item->getNotes(),
+            ];
+
+            $this->client->set_cfdi33_detalle($set_cfdi33_detalle);
         }
     }
 }

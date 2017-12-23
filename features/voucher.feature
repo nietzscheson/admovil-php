@@ -22,7 +22,7 @@ Feature: Admovil Voucher
           | street | code_postal | state         | city   | town          | neighborhood | exterior_number  | interior_number | telephone  | fiscal_residency  |
           | Street | 77500       |  Quintana Roo | Cancun | Benito Juarez | Mercado 28   | Exterior Number | InteriorNumber | 9999999999 | MEX |
       When I get a Voucher
-#      And I set the Invoice Details as:
-#          | product_or_service_key | certificate_number | quantity | description | identification_number | unit_name                                 | unit_key | unit_value | discount | tax_base | vat_transfer | vat_withheld | ieps_transfer | ieps_withheld | isr | pediment_number |account_predial | notes |
-#          | 01010101               |                    | 1        | Description | 1                     | Tambor de cincuenta y cinco galones (EUA) | 18       | 100.00     | 0.0      | 13.8     | 16           | 16           | 0             | 0             | 0   |                 |                | Notes |
-#      Then I want to Bill
+      And I set the Invoice Details as:
+          | product_or_service_key | certificate_number | quantity | description | identification_number | unit_name                                 | unit_key | unit_value | discount | tax_base | vat_transfer | vat_withheld | ieps_transfer | ieps_withheld | isr | pediment_number | predial_account | notes |
+          | 01010101               |                    | 1        | Description | 1                     | Tambor de cincuenta y cinco galones (EUA) | 18       | 100.00     | 0.0      | 13.8     | 16           | 16           | 0             | 0             | 0   |                 |                 | Notes |
+      Then I want to Bill

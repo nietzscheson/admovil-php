@@ -15,6 +15,7 @@ use Nietzscheson\Admovil\Voucher\Businessname\Businessname;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Faker\Factory;
 
 class BusinessnameFactory extends AbstractFactory
 {
@@ -22,11 +23,14 @@ class BusinessnameFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = []): BusinessnameInterface
+    public static function create(array $options = []): BusinessnameInterface
     {
         $businessname = new Businessname();
 
-        $options = $this->optionsResolver->resolve($options);
+        $optionsResolver = new OptionsResolver();
+        self::configureOptions($optionsResolver);
+
+        $options = $optionsResolver->resolve($options);
 
         $businessname->setId($options['id']);
         $businessname->setName($options['name']);
@@ -35,9 +39,7 @@ class BusinessnameFactory extends AbstractFactory
         $businessname->setReference($options['reference']);
         $businessname->setEmail($options['email']);
 
-        $address = new AddressFactory();
-
-        $businessname->setAddress($address->create());
+        $businessname->setAddress(AddressFactory::create());
 
         return $businessname;
     }
@@ -45,17 +47,19 @@ class BusinessnameFactory extends AbstractFactory
     /**
      * {@inheritdoc}
      */
-    protected function configureOptions(OptionsResolver $resolver): void
+    protected static function configureOptions(OptionsResolver $resolver): void
     {
+        $faker = Factory::create();
+
         $resolver
             ->setDefault('id', '112233')
-            ->setDefault('name', function(Options $options): string {
-                  return $this->faker->name . ' ' . $this->faker->lastName;
+            ->setDefault('name', function(Options $options) use ($faker): string {
+                  return $faker->name . ' ' . $faker->lastName;
             })
             ->setDefault('rfc', 'AAA10101010AAA')
             ->setDefault('tax_id', 002)
-            ->setDefault('reference', $this->faker->address)
-            ->setDefault('email', $this->faker->email)
+            ->setDefault('reference', $faker->address)
+            ->setDefault('email', $faker->email)
         ;
     }
 }

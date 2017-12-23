@@ -21,8 +21,8 @@ class CFDICheckIn extends Admovil implements CFDICheckInInterface
     public function execute(VoucherResultInterface $voucher): void
     {
         $this->client->timbrar([
-            "user" => $this->credential->getUser(),
-            "password" => $this->credential->getPassword(),
+            "user" => $this->getUser(),
+            "password" => $this->getPassword(),
             "IdComprobante" => $voucher->getVoucher()
         ]);
     }
