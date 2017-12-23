@@ -67,11 +67,11 @@ class FeatureContext extends AbstractFeatureContext
     }
 
     /**
-     * @Given I am Connect with:
+     * @Given I am Connect with Admovil Service
      */
-    public function iAmConnectWith(TableNode $table)
+    public function iAmConnectWithAdmovilService()
     {
-        $this->cfdi = CFDIFactory::create($this->singleItemsTable($table));
+        $this->cfdi = CFDIFactory::create();
     }
 
     /**

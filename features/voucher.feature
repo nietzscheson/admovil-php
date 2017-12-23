@@ -4,9 +4,7 @@ Feature: Admovil Voucher
     I need to be able stamp a Admovil Voucher
 
   Background:
-      Given I am Connect with:
-          | user    | password | rfc          | system_id   |
-          | Pruebas | 10101010 | AAA010101AAA | admovil-php |
+      Given I am Connect with Admovil Service
 
   Scenario: Get a Voucher
       Given I am set the Voucher as:
