@@ -5,7 +5,7 @@ namespace Nietzscheson\Admovil;
 trait NotesTrait
 {
 
-    private $notes;
+    protected $notes;
 
     /**
      * @return string

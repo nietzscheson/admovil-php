@@ -8,12 +8,12 @@ trait UserTrait
     /**
      * @var string
      */
-    private $user;
+    protected $user;
 
     /**
      * @var string
      */
-    private $password;
+    protected $password;
 
     /**
      * @return string

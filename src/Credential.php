@@ -10,12 +10,12 @@ class Credential implements CredentialInterface
     /**
      * @var string
      */
-    private $rfc;
+    protected $rfc;
 
     /**
      * @var string
      */
-    private $systemId;
+    protected $systemId;
 
     /**
      * @return string
