@@ -54,7 +54,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getProductOrServiceKey(): string
+    public function getProductOrServiceKey(): ?string
     {
         return $this->productOrServiceKey;
     }
@@ -62,7 +62,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setProductOrServiceKey(string $productOrServiceKey): void
+    public function setProductOrServiceKey(string $productOrServiceKey = null): void
     {
         $this->productOrServiceKey = $productOrServiceKey;
     }
@@ -70,7 +70,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getCertificateNumber(): string
+    public function getCertificateNumber(): ?string
     {
         return $this->certificateNumber;
     }
@@ -78,7 +78,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setCertificateNumber(string $certificateNumber): void
+    public function setCertificateNumber(string $certificateNumber = null): void
     {
         $this->certificateNumber = $certificateNumber;
     }
@@ -86,7 +86,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getQuantity(): float
+    public function getQuantity(): ?float
     {
         return $this->quantity;
     }
@@ -94,7 +94,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setQuantity(float $quantity): void
+    public function setQuantity(float $quantity = null): void
     {
         $this->quantity = $quantity;
     }
@@ -102,7 +102,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -110,7 +110,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setDescription(string $description): void
+    public function setDescription(string $description  = null): void
     {
         $this->description = $description;
     }
@@ -118,7 +118,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentificationNumber(): int
+    public function getIdentificationNumber(): ?int
     {
         return $this->identificationNumber;
     }
@@ -126,7 +126,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setIdentificationNumber(int $identificationNumber): void
+    public function setIdentificationNumber(int $identificationNumber = null): void
     {
         $this->identificationNumber = $identificationNumber;
     }
@@ -134,7 +134,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getDiscount(): float
+    public function getDiscount(): ?float
     {
         return $this->discount;
     }
@@ -142,7 +142,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setDiscount(float $discount): void
+    public function setDiscount(float $discount = null): void
     {
         $this->discount = $discount;
     }
@@ -150,7 +150,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getPedimentNumber(): string
+    public function getPedimentNumber(): ?string
     {
         return $this->pedimentNumber;
     }
@@ -158,7 +158,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setPedimentNumber(string $pedimentNumber): void
+    public function setPedimentNumber(string $pedimentNumber = null): void
     {
         $this->pedimentNumber = $pedimentNumber;
     }
@@ -166,7 +166,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getPredialAccount(): string
+    public function getPredialAccount(): ?string
     {
         return $this->predialAccount;
     }
@@ -174,7 +174,7 @@ class Item implements ItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setPredialAccount(string $predialAccount): void
+    public function setPredialAccount(string $predialAccount = null): void
     {
         $this->predialAccount = $predialAccount;
     }

@@ -40,7 +40,7 @@ trait TaxesTrait
     /**
      * @return float
      */
-    public function getTaxBase(): float
+    public function getTaxBase(): ?float
     {
         return $this->taxBase;
     }
@@ -48,7 +48,7 @@ trait TaxesTrait
     /**
      * @param float
      */
-    public function setTaxBase(float $taxBase): void
+    public function setTaxBase(float $taxBase = null): void
     {
         $this->taxBase = $taxBase;
     }
@@ -56,7 +56,7 @@ trait TaxesTrait
     /**
      * @return float
      */
-    public function getVatTransfer(): float
+    public function getVatTransfer(): ?float
     {
         return $this->vatTransfer;
     }
@@ -64,7 +64,7 @@ trait TaxesTrait
     /**
      * @param float
      */
-    public function setVatTransfer(float $vatTransfer): void
+    public function setVatTransfer(float $vatTransfer = null): void
     {
         $this->vatTransfer = $vatTransfer;
     }
@@ -72,7 +72,7 @@ trait TaxesTrait
     /**
      * @return float
      */
-    public function getVatWithheld(): float
+    public function getVatWithheld(): ?float
     {
         return $this->vatWithheld;
     }
@@ -80,7 +80,7 @@ trait TaxesTrait
     /**
      * @param float
      */
-    public function setVatWithheld(float $vatWithheld): void
+    public function setVatWithheld(float $vatWithheld = null): void
     {
         $this->vatWithheld = $vatWithheld;
     }
@@ -88,7 +88,7 @@ trait TaxesTrait
     /**
      * @return float
      */
-    public function getIepsTransfer(): float
+    public function getIepsTransfer(): ?float
     {
         return $this->iepsTransfer;
     }
@@ -96,7 +96,7 @@ trait TaxesTrait
     /**
      * @param float
      */
-    public function setIepsTransfer(float $iepsTransfer): void
+    public function setIepsTransfer(float $iepsTransfer = null): void
     {
         $this->iepsTransfer = $iepsTransfer;
     }
@@ -104,7 +104,7 @@ trait TaxesTrait
     /**
      * @return float
      */
-    public function getIepsWithheld(): float
+    public function getIepsWithheld(): ?float
     {
         return $this->iepsWithheld;
     }
@@ -112,7 +112,7 @@ trait TaxesTrait
     /**
      * @param float
      */
-    public function setIepsWithheld(float $iepsWithheld): void
+    public function setIepsWithheld(float $iepsWithheld = null): void
     {
         $this->iepsWithheld = $iepsWithheld;
     }
@@ -120,7 +120,7 @@ trait TaxesTrait
     /**
      * @return float
      */
-    public function getIsr(): float
+    public function getIsr(): ?float
     {
         return $this->isr;
     }
@@ -128,7 +128,7 @@ trait TaxesTrait
     /**
      * @param float
      */
-    public function setIsr(float $isr): void
+    public function setIsr(float $isr = null): void
     {
         $this->isr = $isr;
     }

@@ -6,24 +6,24 @@ trait UnitTrait
 {
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $unitName;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $unitKey;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $unitValue;
 
     /**
      * @return string
      */
-    public function getUnitName(): string
+    public function getUnitName(): ?string
     {
         return $this->unitName;
     }
@@ -31,7 +31,7 @@ trait UnitTrait
     /**
      * @param string
      */
-    public function setUnitName(string $unitName): void
+    public function setUnitName(string $unitName = null): void
     {
         $this->unitName = $unitName;
     }
@@ -39,7 +39,7 @@ trait UnitTrait
     /**
      * @return string
      */
-    public function getUnitKey(): string
+    public function getUnitKey(): ?string
     {
         return $this->unitKey;
     }
@@ -47,7 +47,7 @@ trait UnitTrait
     /**
      * @param string
      */
-    public function setUnitKey(string $unitKey): void
+    public function setUnitKey(string $unitKey = null): void
     {
         $this->unitKey = $unitKey;
     }
@@ -55,7 +55,7 @@ trait UnitTrait
     /**
      * @return string
      */
-    public function getUnitValue(): string
+    public function getUnitValue(): ?string
     {
         return $this->unitValue;
     }
@@ -63,7 +63,7 @@ trait UnitTrait
     /**
      * @param string
      */
-    public function setUnitValue(string $unitValue): void
+    public function setUnitValue(string $unitValue = null): void
     {
         $this->unitValue = $unitValue;
     }

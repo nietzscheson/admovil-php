@@ -10,61 +10,61 @@ interface TaxesInterface
     /**
      * @return float
      */
-    public function getTaxBase(): float;
+    public function getTaxBase(): ?float;
 
     /**
      * @param float
      */
-    public function setTaxBase(float $taxBase): void;
+    public function setTaxBase(float $taxBase = null): void;
 
     /**
      * @return float
      */
-    public function getVatTransfer(): float;
+    public function getVatTransfer(): ?float;
 
     /**
      * @param float
      */
-    public function setVatTransfer(float $vatTransfer): void;
+    public function setVatTransfer(float $vatTransfer = null): void;
 
     /**
      * @return float
      */
-    public function getVATWithheld(): float;
+    public function getVATWithheld(): ?float;
 
     /**
      * @param float
      */
-    public function setVATWithheld(float $vatWithHeld): void;
+    public function setVATWithheld(float $vatWithHeld = null): void;
 
     /**
      * @return float
      */
-    public function getIEPSTransfer(): float;
+    public function getIEPSTransfer(): ?float;
 
     /**
      * @param float
      */
-    public function setIEPSTransfer(float $ipetsTransfer): void;
+    public function setIEPSTransfer(float $ipetsTransfer = null): void;
 
     /**
      * @return float
      */
-    public function getIEPSWithheld(): float;
+    public function getIEPSWithheld(): ?float;
 
     /**
      * @param float
      */
-    public function setIEPSWithheld(float $ipesWithheld): void;
+    public function setIEPSWithheld(float $ipesWithheld = null): void;
 
     /**
      * @return float
      */
-    public function getISR(): float;
+    public function getISR(): ?float;
 
     /**
      * @param float
      */
-    public function setISR(float $isr): void;
+    public function setISR(float $isr = null): void;
 
 }

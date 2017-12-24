@@ -9,82 +9,82 @@ use Nietzscheson\Admovil\NotesInterface;
 interface ItemInterface extends NotesInterface, TaxesInterface, UnitInterface
 {
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProductOrServiceKey(): string;
+    public function getProductOrServiceKey(): ?string;
 
     /**
      * @param string
      */
-    public function setProductOrServiceKey(string $key): void;
+    public function setProductOrServiceKey(string $key = null): void;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCertificateNumber(): string;
+    public function getCertificateNumber(): ?string;
 
     /**
      * @param string
      */
-    public function setCertificateNumber(string $number): void;
+    public function setCertificateNumber(string $number = null): void;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getQuantity(): float;
+    public function getQuantity(): ?float;
 
     /**
      * @param float
      */
-    public function setQuantity(float $quantity): void;
+    public function setQuantity(float $quantity = null): void;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription(): string;
+    public function getDescription(): ?string;
 
     /**
      * @param string
      */
-    public function setDescription(string $description): void;
+    public function setDescription(string $description = null): void;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getIdentificationNumber(): int;
+    public function getIdentificationNumber(): ?int;
 
     /**
-     * @param int $id
+     * @param int
      */
-    public function setIdentificationNumber(int $id): void;
+    public function setIdentificationNumber(int $id = null): void;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getDiscount(): float;
+    public function getDiscount(): ?float;
 
     /**
      * @param float
      */
-    public function setDiscount(float $discount): void;
+    public function setDiscount(float $discount = null): void;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPedimentNumber(): string;
-
-    /**
-     * @param string
-     */
-    public function setPedimentNumber(string $pedimentNumber): void;
-
-    /**
-     * @return string
-     */
-    public function getPredialAccount(): string;
+    public function getPedimentNumber(): ?string;
 
     /**
      * @param string
      */
-    public function setPredialAccount(string $predialAccount): void;
+    public function setPedimentNumber(string $pedimentNumber = null): void;
+
+    /**
+     * @return string|null
+     */
+    public function getPredialAccount(): ?string;
+
+    /**
+     * @param string
+     */
+    public function setPredialAccount(string $predialAccount = null): void;
 }
