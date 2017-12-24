@@ -10,32 +10,32 @@ trait TaxesTrait
     /**
      * @var float
      */
-    private $taxBase;
+    protected $taxBase;
 
     /**
      * @var float
      */
-    private $vatTransfer;
+    protected $vatTransfer;
 
     /**
      * @var float
      */
-    private $vatWithheld;
+    protected $vatWithheld;
 
     /**
      * @var float
      */
-    private $iepsTransfer;
+    protected $iepsTransfer;
 
     /**
      * @var float
      */
-    private $iepsWithheld;
+    protected $iepsWithheld;
 
     /**
      * @var float
      */
-    private $isr;
+    protected $isr;
 
     /**
      * @return float

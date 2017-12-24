@@ -8,17 +8,17 @@ trait UnitTrait
     /**
      * @var string
      */
-    private $unitName;
+    protected $unitName;
 
     /**
      * @var string
      */
-    private $unitKey;
+    protected $unitKey;
 
     /**
      * @var string
      */
-    private $unitValue;
+    protected $unitValue;
 
     /**
      * @return string

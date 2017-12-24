@@ -14,42 +14,42 @@ class Item implements ItemInterface
     /**
      * @var string
      */
-    private $productOrServiceKey;
+    protected $productOrServiceKey;
 
     /**
      * @var string
      */
-    private $certificateNumber;
+    protected $certificateNumber;
 
     /**
      * @var float
      */
-    private $quantity;
+    protected $quantity;
 
     /**
      * @var string
      */
-    private $description;
+    protected $description;
 
     /**
      * @var int
      */
-    private $identificationNumber;
+    protected $identificationNumber;
 
     /**
      * @var float
      */
-    private $discount;
+    protected $discount;
 
     /**
      * @var string
      */
-    private $pedimentNumber;
+    protected $pedimentNumber;
 
     /**
      * @var string
      */
-    private $predialAccount;
+    protected $predialAccount;
 
     /**
      * {@inheritdoc}
