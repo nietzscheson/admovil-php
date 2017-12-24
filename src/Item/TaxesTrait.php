@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nietzscheson\Admovil\Item;
 
-class Taxes implements TaxesInterface
+trait TaxesTrait
 {
 
     /**
@@ -38,7 +38,7 @@ class Taxes implements TaxesInterface
     private $isr;
 
     /**
-     * {@inheritdoc}
+     * @return float
      */
     public function getTaxBase(): float
     {
@@ -46,7 +46,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param float
      */
     public function setTaxBase(float $taxBase): void
     {
@@ -54,7 +54,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return float
      */
     public function getVatTransfer(): float
     {
@@ -62,7 +62,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param float
      */
     public function setVatTransfer(float $vatTransfer): void
     {
@@ -70,7 +70,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return float
      */
     public function getVatWithheld(): float
     {
@@ -78,7 +78,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param float
      */
     public function setVatWithheld(float $vatWithheld): void
     {
@@ -86,7 +86,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return float
      */
     public function getIepsTransfer(): float
     {
@@ -94,7 +94,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param float
      */
     public function setIepsTransfer(float $iepsTransfer): void
     {
@@ -102,7 +102,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return float
      */
     public function getIepsWithheld(): float
     {
@@ -110,7 +110,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param float
      */
     public function setIepsWithheld(float $iepsWithheld): void
     {
@@ -118,7 +118,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return float
      */
     public function getIsr(): float
     {
@@ -126,7 +126,7 @@ class Taxes implements TaxesInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param float
      */
     public function setIsr(float $isr): void
     {

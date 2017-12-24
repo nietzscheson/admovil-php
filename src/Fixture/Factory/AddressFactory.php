@@ -62,7 +62,7 @@ class AddressFactory extends AbstractFactory
             ->setDefault('exterior_number', 'Exterior Number')
             ->setDefault('interior_number', 'Interior Number')
             ->setDefault('telephone', 9999999999)
-            ->setDefault('fiscal_residency', $faker->address)
+            ->setDefault('fiscal_residency', 'MEX')
         ;
     }
 }

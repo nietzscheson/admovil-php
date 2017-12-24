@@ -47,9 +47,9 @@ class PaymentFactory extends AbstractFactory
     {
         $resolver
             ->setDefault('condition', 'The condition')
-            ->setDefault('form', PaymentFormInterface::CFDI_PAYMENT_FORM_UNDEFINED)
+            ->setDefault('form', PaymentFormInterface::UNDEFINED)
             ->setDefault('account', '112233445566')
-            ->setDefault('method', PaymentMethodInterface::CFDI_PAYMENT_METHOD_PPD)
+            ->setDefault('method', PaymentMethodInterface::PPD)
         ;
     }
 }

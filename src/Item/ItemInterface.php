@@ -6,7 +6,7 @@ namespace Nietzscheson\Admovil\Item;
 
 use Nietzscheson\Admovil\NotesInterface;
 
-interface ItemInterface extends NotesInterface, TaxesAwareInterface, UnitAwareInterface
+interface ItemInterface extends NotesInterface, TaxesInterface, UnitInterface
 {
     /**
      * @return string

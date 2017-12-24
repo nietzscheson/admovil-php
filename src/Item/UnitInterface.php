@@ -8,30 +8,30 @@ interface UnitInterface
     /**
      * @return string
      */
-    public function getName(): string;
+    public function getUnitName(): string;
 
     /**
      * @param string
      */
-    public function setName(string $name): void;
+    public function setUnitName(string $name): void;
 
     /**
      * @return string
      */
-    public function getKey(): string;
+    public function getUnitKey(): string;
 
     /**
      * @param string
      */
-    public function setKey(string $key): void;
+    public function setUnitKey(string $key): void;
 
     /**
      * @return string
      */
-    public function getValue(): string;
+    public function getUnitValue(): string;
 
     /**
      * @param string
      */
-    public function setValue(string $value): void;
+    public function setUnitValue(string $value): void;
 }

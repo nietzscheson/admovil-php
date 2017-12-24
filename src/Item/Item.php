@@ -7,10 +7,9 @@ use Nietzscheson\Admovil\NotesTrait;
 
 class Item implements ItemInterface
 {
-
     use NotesTrait;
-    use TaxesAwareTrait;
-    use UnitAwareTrait;
+    use TaxesTrait;
+    use UnitTrait;
 
     /**
      * @var string

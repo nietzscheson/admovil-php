@@ -57,7 +57,7 @@ class BusinessnameFactory extends AbstractFactory
                   return $faker->name . ' ' . $faker->lastName;
             })
             ->setDefault('rfc', 'AAA10101010AAA')
-            ->setDefault('tax_id', 002)
+            ->setDefault('tax_id', '100')
             ->setDefault('reference', $faker->address)
             ->setDefault('email', $faker->email)
         ;

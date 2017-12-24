@@ -14,9 +14,7 @@ declare(strict_types=1);
 namespace spec\Nietzscheson\Admovil\Item;
 
 use Nietzscheson\Admovil\Item\ItemInterface;
-use Nietzscheson\Admovil\Item\TaxesAwareInterface;
 use Nietzscheson\Admovil\Item\TaxesInterface;
-use Nietzscheson\Admovil\Item\UnitAwareInterface;
 use Nietzscheson\Admovil\Item\UnitInterface;
 use Nietzscheson\Admovil\NotesInterface;
 use PhpSpec\ObjectBehavior;
@@ -34,14 +32,14 @@ class ItemSpec extends ObjectBehavior
         $this->shouldHaveType(NotesInterface::class);
     }
 
-    function its_should_implement_a_taxes_aware_interface(): void
+    function its_should_implement_a_unit_interface(): void
     {
-        $this->shouldHaveType(TaxesAwareInterface::class);
+        $this->shouldHaveType(UnitInterface::class);
     }
 
-    function its_should_implement_a_unit_aware_interface(): void
+    function its_should_implement_a_taxex_interface(): void
     {
-        $this->shouldHaveType(UnitAwareInterface::class);
+        $this->shouldHaveType(TaxesInterface::class);
     }
 
     function its_should_return_a_product_or_service_key(): void
@@ -92,16 +90,10 @@ class ItemSpec extends ObjectBehavior
         $this->getNotes()->shouldReturn($notes);
     }
 
-    function it_should_return_a_taxes_interface(TaxesInterface $taxes)
+    public function its_should_return_a_unit_key()
     {
-        $this->setTaxes($taxes);
-        $this->getTaxes()->shouldBeAnInstanceOf($taxes);
-    }
-
-    function it_should_return_a_unit_interface(UnitInterface $unit)
-    {
-        $this->setUnit($unit);
-        $this->getUnit()->shouldBeAnInstanceOf($unit);
+        $this->setUnitKey($key = 'key');
+        $this->getUnitKey()->shouldReturn($key );
     }
 
 }

@@ -35,8 +35,14 @@ class ItemFactory extends AbstractFactory
         $item->setQuantity($options['quantity']);
         $item->setDescription($options['description']);
         $item->setIdentificationNumber($options['identification_number']);
-        $item->setUnit(UnitFactory::create());
-        $item->setTaxes(TaxesFactory::create());
+        $item->setUnitKey($options['unit_key']);
+        $item->setUnitName($options['unit_name']);
+        $item->setUnitValue($options['unit_value']);
+        $item->setVatTransfer($options['vat_transfer']);
+        $item->setVatWithheld($options['vat_withheld']);
+        $item->setIepsTransfer($options['ieps_transfer']);
+        $item->setIepsWithheld($options['ieps_withheld']);
+        $item->setIsr($options['isr']);
         $item->setDiscount($options['discount']);
         $item->setPedimentNumber($options['pediment_number']);
         $item->setPredialAccount($options['predial_account']);
@@ -56,6 +62,14 @@ class ItemFactory extends AbstractFactory
             ->setDefault('quantity', '1')
             ->setDefault('description', 'The product description')
             ->setDefault('identification_number', '1')
+            ->setDefault('unit_key', '18')
+            ->setDefault('unit_name', 'Tambor de cincuenta y cinco galones (EUA)')
+            ->setDefault('unit_value', '100.00')
+            ->setDefault('vat_transfer', '16')
+            ->setDefault('vat_withheld', '16')
+            ->setDefault('ieps_transfer', '0')
+            ->setDefault('ieps_withheld', '0')
+            ->setDefault('isr', '0')
             ->setDefault('discount', '0.0')
             ->setDefault('pediment_number', '')
             ->setDefault('predial_account', '')

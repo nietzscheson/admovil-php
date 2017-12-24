@@ -20,7 +20,7 @@ use Nietzscheson\Admovil\Voucher\Businessname\Address;
 use Nietzscheson\Admovil\Voucher\Businessname\Businessname;
 use Nietzscheson\Admovil\Voucher\Payment\Payment;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
-use Nietzscheson\Admovil\Voucher\VoucherResultInterface;
+use Nietzscheson\Admovil\CFDI\CFDIResultInterface;
 use PhpSpec\ObjectBehavior;
 
 class CFDISpec extends ObjectBehavior
@@ -38,8 +38,7 @@ class CFDISpec extends ObjectBehavior
         $voucher->getVoucherType()->willReturn('I');
         $voucher->getBranchOffice()->willReturn('');
         $voucher->getNotes()->willReturn('The notes');
-        $voucher->getCurrency()->willReturn('MEX');
-        $voucher->getExchangeRate()->willReturn('1');
+        $voucher->getCurrency()->willReturn('MXN');
         $voucher->getExchangeRate()->willReturn('1');
         $voucher->getCFDIUse()->willReturn(CFDIUseInterface::UNDEFINED);
         $voucher->getConfirmation()->willReturn('');
@@ -58,7 +57,7 @@ class CFDISpec extends ObjectBehavior
 
     function its_should_return_a_voucher_result_interface(VoucherInterface $voucher)
     {
-        $this->execute($voucher)->shouldBeAnInstanceOf(VoucherResultInterface::class);
+        $this->execute($voucher)->shouldBeAnInstanceOf(CFDIResultInterface::class);
     }
 
 }

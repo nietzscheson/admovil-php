@@ -11,15 +11,15 @@
 
 namespace spec\Nietzscheson\Admovil\Voucher;
 
-use Nietzscheson\Admovil\Voucher\VoucherResultInterface;
+use Nietzscheson\Admovil\CFDI\CFDIResultInterface;
 use PhpSpec\ObjectBehavior;
 
-class VoucherResultSpec extends ObjectBehavior
+class CFDIResultSpec extends ObjectBehavior
 {
 
     function it_is_should_implements_a_voucher_result_interface()
     {
-        $this->shouldHaveType(VoucherResultInterface::class);
+        $this->shouldHaveType(CFDIResultInterface::class);
     }
 
     function its_should_return_a_voucher()
