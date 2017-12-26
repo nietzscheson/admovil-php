@@ -12,14 +12,13 @@ use Nietzscheson\Admovil\Fixture\Factory\AddressFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResult;
 use Nietzscheson\Admovil\CFDI\CFDIException;
 use Nietzscheson\Admovil\Fixture\Factory\ItemFactory;
-use Nietzscheson\Admovil\Fixture\Factory\UnitFactory;
-use Nietzscheson\Admovil\Fixture\Factory\TaxesFactory;
 use Nietzscheson\Admovil\Item\Items;
 use Nietzscheson\Admovil\CFDI\CFDIDetailInterface;
 use Nietzscheson\Admovil\CFDI\CFDIDetail;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\Fixture\Factory\CFDICheckInFactory;
+use Nietzscheson\Admovil\CFDI\CFDICheckinException;
 
 class FeatureContext extends AbstractFeatureContext
 {
@@ -142,7 +141,14 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iWantToBill()
     {
-        $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult);
+        try{
+            $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult);
+        }catch(CFDICheckinException $e){
+            echo $e->getMessage();
+            exit();
+        }
+
+
 
         echo "Voucher: " . $cfdiCheckin->getVoucher() . '<br />';
         echo "UUID: " . $cfdiCheckin->getUUID();

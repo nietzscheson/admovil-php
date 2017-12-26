@@ -24,6 +24,7 @@ class CFDICheckIn extends Admovil implements CFDICheckInInterface
         $timbrar = [
             "user" => $this->getUser(),
             "password" => $this->getPassword(),
+//            "IdComprobante" => (int) $voucher->getVoucher()
             "IdComprobante" => (int) $voucher->getVoucher()
         ];
 
@@ -39,7 +40,7 @@ class CFDICheckIn extends Admovil implements CFDICheckInInterface
             return $cfdiCheckinResult;
 
         }catch(Exception $e){
-            throw new CFDICheckinException();
+            throw new CFDICheckinException($e->getMessage(), $e->getCode());
         }
     }
 }

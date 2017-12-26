@@ -52,7 +52,7 @@ class CFDI extends Admovil implements CFDIInterface
             "receptorNoIntterior" => $adddress->getInteriorNumber(),
             "receptorTel" => $adddress->getTelephone(),
             "receptorResidenciaFiscal" => $adddress->getFiscalResidency(),
-            "receptorNumRegIdTrib" => $business->getTaxId(),
+            "receptorNumRegIdTrib" => TaxIdResolver::resolver($voucher),
             "receptorReferencia" => $business->getReference(),
             "receptorCorreo" => $business->getEmail(),
             "Notas" => $voucher->getNotes(),
