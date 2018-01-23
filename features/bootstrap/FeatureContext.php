@@ -141,16 +141,15 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iWantToBill()
     {
+
         try{
+
             $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult);
-        }catch(CFDICheckinException $e){
+
+        }catch (CFDICheckinException $e){
             echo $e->getMessage();
-            exit();
         }
 
-
-
-        echo "Voucher: " . $cfdiCheckin->getVoucher() . '<br />';
-        echo "UUID: " . $cfdiCheckin->getUUID();
+        echo "Voucher: " . $cfdiCheckin->getVoucher() . " UUID: " . $cfdiCheckin->getUUID();
     }
 }
