@@ -28,13 +28,13 @@ class CFDI extends Admovil implements CFDIInterface
         $adddress = $business->getAddress();
 
         $set_cfdi33 = [
-            "user" => $this->getUser(),
-            "password" => $this->getPassword(),
+            "user" => $voucher->getUser(),
+            "password" => $voucher->getPassword(),
             "Tipo" => $voucher->getBillingType(),
-            "folio_referencia" => $this->getSystemId(),
+            "folio_referencia" => $voucher->getSystemId(),
             "tipoDeComprobante" => $voucher->getVoucherType(),
             "IdSucursal" => $voucher->getBranchOffice(),
-            "emisorRFC" => $this->getRFC(),
+            "emisorRFC" => $voucher->getRFC(),
             "condicionesPago" => $payment->getCondition(),
             "FormaPago" => $payment->getForm(),
             "numCtaPago" => $payment->getAccount(),

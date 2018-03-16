@@ -56,8 +56,14 @@ class ItemSpec extends ObjectBehavior
 
     function its_should_return_a_quantity(): void
     {
-        $this->setCertificateNumber($number = '112233344556');
-        $this->getCertificateNumber()->shouldReturn($number);
+        $this->setQuantity($quantity = 1.0);
+        $this->getQuantity()->shouldReturn($quantity);
+    }
+
+    function its_should_return_a_description(): void
+    {
+        $this->setDescription($description = 'Description');
+        $this->getDescription()->shouldReturn($description);
     }
 
     function its_should_return_a_identification_number(): void
@@ -90,10 +96,57 @@ class ItemSpec extends ObjectBehavior
         $this->getNotes()->shouldReturn($notes);
     }
 
-    public function its_should_return_a_unit_key()
+    function its_should_return_a_tax_base(): void
     {
-        $this->setUnitKey($key = 'key');
-        $this->getUnitKey()->shouldReturn($key );
+        $this->setTaxBase($taxBase = 1.0);
+        $this->getTaxBase()->shouldReturn($taxBase);
     }
 
+    function its_should_return_a_vat_transfer(): void
+    {
+        $this->setVatTransfer($vatTransfer = 100.00);
+        $this->getVatTransfer()->shouldReturn($vatTransfer);
+    }
+
+    function its_should_return_a_vat_withheld(): void
+    {
+        $this->setVATWithheld($vatWithheld = 16.00);
+        $this->getVATWithheld()->shouldReturn($vatWithheld);
+    }
+
+    function its_should_return_a_ieps_transfer(): void
+    {
+        $this->setIEPSTransfer($ipesTransfer = 0.00);
+        $this->getIEPSTransfer()->shouldReturn($ipesTransfer);
+    }
+
+    function its_should_return_a_ieps_withheld(): void
+    {
+        $this->setIEPSWithheld($ipesWithheld = 0.00);
+        $this->getIEPSWithheld()->shouldReturn($ipesWithheld);
+    }
+
+    function its_should_return_a_isr(): void
+    {
+        $this->setISR($isr = 0.00);
+        $this->getISR()->shouldReturn($isr);
+    }
+
+    function its_should_return_a_unit_name(): void
+    {
+        $this->setUnitName($unitName = 'Unit name');
+        $this->getUnitName()->shouldReturn($unitName);
+    }
+
+    function its_should_return_a_unit_key(): void
+    {
+        $this->setUnitKey($unitKey = 'Unit key');
+        $this->getUnitKey()->shouldReturn($unitKey);
+    }
+
+    function its_should_return_a_unit_value(): void
+    {
+        $this->setUnitValue($unitValue = 'Unit value');
+        $this->getUnitValue()->shouldReturn($unitValue);
+    }
 }

@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Nietzscheson\Admovil\Voucher;
 
 use Nietzscheson\Admovil\NotesInterface;
+use Nietzscheson\Admovil\Voucher\Credential\CredentialInterface;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentAwareInterface;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameAwareInterface;
 
 
-interface VoucherInterface extends NotesInterface, PaymentAwareInterface, BusinessnameAwareInterface
+interface VoucherInterface extends CredentialInterface, NotesInterface, PaymentAwareInterface, BusinessnameAwareInterface
 {
 
     /**

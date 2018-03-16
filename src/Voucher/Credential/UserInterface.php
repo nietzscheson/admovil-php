@@ -1,6 +1,6 @@
 <?php
 
-namespace Nietzscheson\Admovil;
+namespace Nietzscheson\Admovil\Voucher\Credential;
 
 interface UserInterface
 {

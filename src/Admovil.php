@@ -4,19 +4,13 @@ namespace Nietzscheson\Admovil;
 
 use Zend\Soap\Client;
 
-class Admovil extends Credential implements AdmovilInterface
+class Admovil implements AdmovilInterface
 {
-
 
     /**
      * @var Client
      */
     protected $client;
-
-    /**
-     * @var CredentialInterface
-     */
-    protected $credential;
 
     public function __construct()
     {

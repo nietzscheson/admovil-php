@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nietzscheson\Admovil;
+namespace spec\Nietzscheson\Admovil\Voucher\Credential;
 
-use Nietzscheson\Admovil\CredentialInterface;
-use Nietzscheson\Admovil\UserInterface;
+use Nietzscheson\Admovil\Voucher\Credential\CredentialInterface;
+use Nietzscheson\Admovil\Voucher\Credential\UserInterface;
 use PhpSpec\ObjectBehavior;
 
 class CredentialSpec extends ObjectBehavior
