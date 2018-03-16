@@ -61,7 +61,6 @@ class VoucherFactory extends AbstractFactory
             ->setDefault('exchange_rate', '19')
             ->setDefault('cfdi_use', CFDIUseInterface::UNDEFINED)
             ->setDefault('confirmation', '')
-
         ;
 
     }

@@ -148,6 +148,7 @@ class FeatureContext extends AbstractFeatureContext
 
         }catch (CFDICheckinException $e){
             echo $e->getMessage();
+            exit;
         }
 
         echo "Voucher: " . $cfdiCheckin->getVoucher() . " UUID: " . $cfdiCheckin->getUUID();

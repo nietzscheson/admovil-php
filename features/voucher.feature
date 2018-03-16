@@ -14,11 +14,11 @@ Feature: Admovil Voucher
           | account         | condition | form | method |
           | 999888777666555 | Condition | 99   | PPD    |
       And I am set the Businessname as:
-          | id | name    | rfc          | tax_id | reference | email           |
-          | 12 | Netflix | AAA010101AAA | 100    | Reference | email@email.com |
+          | id | name    | rfc           | tax_id |  email          |
+          | 12 | Netflix | XEXX010101000 | 100    | email@email.com |
       And I am set the Address as:
           | street | code_postal | state         | city   | town          | neighborhood | exterior_number | interior_number | telephone  | fiscal_residency  |
-          | Street | 77500       |  Quintana Roo | Cancun | Benito Juarez | Mercado 28   | Exterior Number | InteriorNumber  | 9999999999 | MEX               |
+          | Street | 77500       |  Quintana Roo | Cancun | Benito Juarez | Mercado 28   | Exterior Number | InteriorNumber  | 9999999999 | USA               |
       When I get a Voucher
       And I set the Invoice Details as:
           | product_or_service_key | certificate_number | quantity | description | identification_number | unit_name | unit_key | unit_value | discount | vat_transfer | vat_withheld | ieps_transfer | ieps_withheld | isr | pediment_number | predial_account | notes |

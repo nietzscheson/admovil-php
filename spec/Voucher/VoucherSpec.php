@@ -32,11 +32,6 @@ class VoucherSpec extends ObjectBehavior
         $this->shouldHaveType(NotesInterface::class);
     }
 
-    function it_is_should_implement_a_payment_aware_interface()
-    {
-        $this->shouldHaveType(PaymentAwareInterface::class);
-    }
-
     function it_is_should_implement_a_businessname_aware_interface()
     {
         $this->shouldHaveType(BusinessnameAwareInterface::class);
