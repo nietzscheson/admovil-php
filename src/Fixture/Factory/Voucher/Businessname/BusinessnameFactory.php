@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Nietzscheson\Admovil\Fixture\Factory
+ * @package Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *
@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname;
 
+use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
 use Nietzscheson\Admovil\Voucher\Businessname\Businessname;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -52,12 +53,12 @@ class BusinessnameFactory extends AbstractFactory
         $faker = Factory::create();
 
         $resolver
-            ->setDefault('id', '112233')
+            ->setDefault('id', '12')
             ->setDefault('name', function(Options $options) use ($faker): string {
                   return $faker->name . ' ' . $faker->lastName;
             })
-            ->setDefault('rfc', 'AAA10101010AAA')
-            ->setDefault('tax_id', '100')
+            ->setDefault('rfc', 'LAN7008173R5')
+            ->setDefault('tax_id', null)
             ->setDefault('reference', $faker->address)
             ->setDefault('email', $faker->email)
         ;

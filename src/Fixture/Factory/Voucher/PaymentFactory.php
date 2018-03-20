@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\Voucher;
 
+use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
 use Nietzscheson\Admovil\Voucher\Payment\Payment;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentFormInterface;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentInterface;
@@ -46,9 +47,9 @@ class PaymentFactory extends AbstractFactory
     protected static function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('condition', 'The condition')
+            ->setDefault('condition', 'Condition')
             ->setDefault('form', PaymentFormInterface::UNDEFINED)
-            ->setDefault('account', '112233445566')
+            ->setDefault('account', '999888777666555')
             ->setDefault('method', PaymentMethodInterface::PPD)
         ;
     }

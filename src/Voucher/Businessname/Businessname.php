@@ -88,7 +88,7 @@ class Businessname implements BusinessnameInterface
     /**
      * {@inheritdoc}
      */
-    public function getTaxId(): int
+    public function getTaxId(): ?int
     {
         return $this->taxId;
     }
@@ -96,7 +96,7 @@ class Businessname implements BusinessnameInterface
     /**
      * {@inheritdoc}
      */
-    public function setTaxId(int $taxId): void
+    public function setTaxId(int $taxId = null): void
     {
         $this->taxId = $taxId;
     }

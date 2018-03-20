@@ -9,10 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nietzscheson\Admovil\Voucher\Credential;
+namespace spec\Nietzscheson\Admovil\Voucher;
 
-use Nietzscheson\Admovil\Voucher\Credential\CredentialInterface;
-use Nietzscheson\Admovil\Voucher\Credential\UserInterface;
+use Nietzscheson\Admovil\Voucher\CredentialInterface;
 use PhpSpec\ObjectBehavior;
 
 class CredentialSpec extends ObjectBehavior
@@ -21,11 +20,6 @@ class CredentialSpec extends ObjectBehavior
     function its_should_implement_a_credential_interface()
     {
         $this->shouldImplement(CredentialInterface::class);
-    }
-
-    function its_should_implement_a_user_interface()
-    {
-        $this->shouldImplement(UserInterface::class);
     }
 
     function its_should_return_a_rfc()

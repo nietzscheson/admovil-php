@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Nietzscheson\Admovil\Fixture\Factory
+ * @package Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *
@@ -9,9 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname;;
 
 use Faker\Factory;
+use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
 use Nietzscheson\Admovil\Voucher\Businessname\Address;
 use Nietzscheson\Admovil\Voucher\Businessname\AddressInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

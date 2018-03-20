@@ -28,11 +28,5 @@ class AdmovilFactory extends AbstractFactory
      */
     protected static function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver
-            ->setDefault('user', CredentialExampleFactoryInterface::USER)
-            ->setDefault('password', CredentialExampleFactoryInterface::PASS)
-            ->setDefault('rfc', CredentialExampleFactoryInterface::RFC)
-            ->setDefault('system_id', CredentialExampleFactoryInterface::SYSTEMID)
-        ;
     }
 }

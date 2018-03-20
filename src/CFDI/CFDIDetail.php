@@ -42,8 +42,12 @@ class CFDIDetail extends Admovil implements CFDIDetailInterface
                 "CuentaPredial" => $item->getPredialAccount(),
                 "Notas" => $item->getNotes(),
             ];
+            try{
+                $this->client->set_cfdi33_detalle($set_cfdi33_detalle);
+            }catch (\Exception $e){
+                echo '<pre>';print_r($e->getMessage());exit();
+            }
 
-            $this->client->set_cfdi33_detalle($set_cfdi33_detalle);
         }
     }
 }

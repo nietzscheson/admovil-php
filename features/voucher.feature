@@ -18,7 +18,7 @@ Feature: Admovil Voucher
           | 12 | Netflix | XEXX010101000 | 100    | email@email.com |
       And I am set the Address as:
           | street | code_postal | state         | city   | town          | neighborhood | exterior_number | interior_number | telephone  | fiscal_residency  |
-          | Street | 77500       |  Quintana Roo | Cancun | Benito Juarez | Mercado 28   | Exterior Number | InteriorNumber  | 9999999999 | USA               |
+          | Street | 77500       |  Quintana Roo | Cancun | Benito Juarez | Mercado 28   | Exterior Number | Interior Number  | 9999999999 | USA               |
       When I get a Voucher
       And I set the Invoice Details as:
           | product_or_service_key | certificate_number | quantity | description | identification_number | unit_name | unit_key | unit_value | discount | vat_transfer | vat_withheld | ieps_transfer | ieps_withheld | isr | pediment_number | predial_account | notes |
