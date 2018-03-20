@@ -47,9 +47,9 @@ class PaymentFactory extends AbstractFactory
     protected static function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('condition', 'The condition')
+            ->setDefault('condition', 'Condition')
             ->setDefault('form', PaymentFormInterface::UNDEFINED)
-            ->setDefault('account', '112233445566')
+            ->setDefault('account', '999888777666555')
             ->setDefault('method', PaymentMethodInterface::PPD)
         ;
     }

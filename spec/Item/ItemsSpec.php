@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace spec\Nietzscheson\Admovil\Item;
 
 use Doctrine\Common\Collections\Collection;
-use Nietzscheson\Admovil\Fixture\Factory\ItemFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Item\ItemFactory;
 use Nietzscheson\Admovil\Item\ItemsInterface;
 use PhpSpec\ObjectBehavior;
 

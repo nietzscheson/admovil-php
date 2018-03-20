@@ -53,12 +53,12 @@ class BusinessnameFactory extends AbstractFactory
         $faker = Factory::create();
 
         $resolver
-            ->setDefault('id', '112233')
+            ->setDefault('id', '12')
             ->setDefault('name', function(Options $options) use ($faker): string {
                   return $faker->name . ' ' . $faker->lastName;
             })
-            ->setDefault('rfc', 'AAA10101010AAA')
-            ->setDefault('tax_id', '100')
+            ->setDefault('rfc', 'LAN7008173R5')
+            ->setDefault('tax_id', null)
             ->setDefault('reference', $faker->address)
             ->setDefault('email', $faker->email)
         ;

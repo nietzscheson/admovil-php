@@ -14,7 +14,6 @@ namespace spec\Nietzscheson\Admovil\Voucher;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameAwareInterface;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
 use Nietzscheson\Admovil\NotesInterface;
-use Nietzscheson\Admovil\Voucher\Payment\PaymentAwareInterface;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentInterface;
 use PhpSpec\ObjectBehavior;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;

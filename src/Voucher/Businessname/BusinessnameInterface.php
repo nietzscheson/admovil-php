@@ -38,14 +38,14 @@ interface BusinessnameInterface extends AddressAwareInterface
     public function setRFC(string $rfc): void;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTaxId(): int;
+    public function getTaxId(): ?int;
 
     /**
-     * @param int
+     * @param int|null
      */
-    public function setTaxId(int $taxId): void;
+    public function setTaxId(int $taxId = null): void;
 
     /**
      * @return string
