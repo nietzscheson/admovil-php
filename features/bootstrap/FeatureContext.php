@@ -1,24 +1,25 @@
 <?php
 
 use Behat\Gherkin\Node\TableNode;
-use Nietzscheson\Admovil\Fixture\Factory\CFDIFactory;
-use Nietzscheson\Admovil\Fixture\Factory\VoucherFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Voucher\VoucherFactory;
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
-use Nietzscheson\Admovil\Fixture\Factory\PaymentFactory;
-use Nietzscheson\Admovil\Fixture\Factory\BusinessnameFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Voucher\PaymentFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname\BusinessnameFactory;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
-use Nietzscheson\Admovil\Fixture\Factory\AddressFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname\AddressFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResult;
 use Nietzscheson\Admovil\CFDI\CFDIException;
-use Nietzscheson\Admovil\Fixture\Factory\ItemFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Item\ItemFactory;
 use Nietzscheson\Admovil\Item\Items;
 use Nietzscheson\Admovil\CFDI\CFDIDetailInterface;
 use Nietzscheson\Admovil\CFDI\CFDIDetail;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
-use Nietzscheson\Admovil\Fixture\Factory\CFDICheckInFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDICheckInFactory;
 use Nietzscheson\Admovil\CFDI\CFDICheckinException;
+use Nietzscheson\Admovil\Fixture\Factory\Voucher\CredentialFactory;
 
 class FeatureContext extends AbstractFeatureContext
 {
@@ -144,7 +145,9 @@ class FeatureContext extends AbstractFeatureContext
 
         try{
 
-            $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult);
+            $credential = CredentialFactory::create();
+
+            $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult, $credential);
 
         }catch (CFDICheckinException $e){
             echo $e->getMessage();

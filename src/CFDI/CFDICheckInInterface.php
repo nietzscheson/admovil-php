@@ -10,13 +10,15 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\AdmovilInterface;
+use Nietzscheson\Admovil\Voucher\CredentialInterface;
 
 interface CFDICheckInInterface extends AdmovilInterface
 {
     /**
      * @param CFDIResultInterface $voucher
+     * @param CredentialInterface $credential
      *
      * @return CFDICheckinResultInterface|CFDICheckinException
      */
-    public function execute(CFDIResultInterface $voucher): ?CFDICheckinResultInterface;
+    public function execute(CFDIResultInterface $voucher, CredentialInterface $credential): ?CFDICheckinResultInterface;
 }

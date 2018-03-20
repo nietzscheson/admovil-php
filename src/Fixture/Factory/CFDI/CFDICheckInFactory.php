@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\CFDI;
 
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
+use Nietzscheson\Admovil\Fixture\Factory\AdmovilFactory;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CFDICheckInFactory extends AdmovilFactory
@@ -29,11 +30,6 @@ class CFDICheckInFactory extends AdmovilFactory
         parent::configureOptions($optionsResolver);
 
         $options = $optionsResolver->resolve($options);
-
-        $cfdiCheckiIn->setUser($options['user']);
-        $cfdiCheckiIn->setPassword($options['password']);
-        $cfdiCheckiIn->setRfc($options['rfc']);
-        $cfdiCheckiIn->setSystemId($options['system_id']);
 
         return $cfdiCheckiIn;
     }

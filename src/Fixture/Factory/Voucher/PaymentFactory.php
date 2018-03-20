@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\Voucher;
 
+use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
 use Nietzscheson\Admovil\Voucher\Payment\Payment;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentFormInterface;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentInterface;

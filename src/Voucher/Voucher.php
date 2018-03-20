@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nietzscheson\Admovil\Voucher;
 
 use Nietzscheson\Admovil\NotesTrait;
-use Nietzscheson\Admovil\Voucher\Credential\Credential;
 use Nietzscheson\Admovil\Voucher\Payment\PaymentAwareTrait;
 use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameAwareTrait;
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Nietzscheson\Admovil\Fixture\Factory
+ * @package Nietzscheson\Admovil\Fixture\Factory\Voucher\Credential
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\Voucher\Credential;
 
 interface CredentialExampleFactoryInterface
 {

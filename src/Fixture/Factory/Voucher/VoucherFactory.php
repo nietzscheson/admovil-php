@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\Voucher;
 
 use Nietzscheson\Admovil\CFDI\CFDIUseInterface;
+use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname\BusinessnameFactory;
 use Nietzscheson\Admovil\Voucher\Voucher;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,12 +27,17 @@ class VoucherFactory extends AbstractFactory
     public static function create(array $options = []): VoucherInterface
     {
         $voucher = new Voucher();
+        $credendialFactory = CredentialFactory::create();
 
         $optionsResolver = new OptionsResolver();
         self::configureOptions($optionsResolver);
 
         $options = $optionsResolver->resolve($options);
 
+        $voucher->setUser($credendialFactory->getUser());
+        $voucher->setPassword($credendialFactory->getPassword());
+        $voucher->setRFC($credendialFactory->getRFC());
+        $voucher->setSystemId($credendialFactory->getSystemId());
         $voucher->setBillingType($options['billing_type']);
         $voucher->setVoucherType($options['voucher_type']);
         $voucher->setBranchOffice($options['branch_office']);
@@ -57,11 +64,10 @@ class VoucherFactory extends AbstractFactory
             ->setDefault('voucher_type', 'I')
             ->setDefault('branch_office', '')
             ->setDefault('notes', 'The notes')
-            ->setDefault('currency', 'MEX')
+            ->setDefault('currency', 'MXN')
             ->setDefault('exchange_rate', '19')
             ->setDefault('cfdi_use', CFDIUseInterface::UNDEFINED)
             ->setDefault('confirmation', '')
         ;
-
     }
 }

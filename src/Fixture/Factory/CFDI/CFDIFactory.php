@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory;
+namespace Nietzscheson\Admovil\Fixture\Factory\CFDI;
 
-use Nietzscheson\Admovil\Admovil;
 use Nietzscheson\Admovil\CFDI\CFDI;
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
+use Nietzscheson\Admovil\Fixture\Factory\AdmovilFactory;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CFDIFactory extends AdmovilFactory
@@ -30,11 +30,6 @@ class CFDIFactory extends AdmovilFactory
         parent::configureOptions($optionsResolver);
 
         $options = $optionsResolver->resolve($options);
-
-        $cfdi->setUser($options['user']);
-        $cfdi->setPassword($options['password']);
-        $cfdi->setRfc($options['rfc']);
-        $cfdi->setSystemId($options['system_id']);
 
         return $cfdi;
     }
