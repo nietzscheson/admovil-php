@@ -9,27 +9,11 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
-class CFDICheckinResult extends CFDIResult implements CFDICheckinResultInterface
+use Nietzscheson\Admovil\Voucher\UUIDTrait;
+use Nietzscheson\Admovil\Voucher\VoucherTrait;
+
+class CFDICheckinResult implements CFDICheckinResultInterface
 {
-
-    /**
-     * @var string
-     */
-    private $uuid;
-
-    /**
-     * @return string
-     */
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * @param string $uuid
-     */
-    public function setUuid(string $uuid): void
-    {
-        $this->uuid = $uuid;
-    }
+    use VoucherTrait;
+    use UUIDTrait;
 }

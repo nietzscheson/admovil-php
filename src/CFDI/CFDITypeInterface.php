@@ -1,6 +1,6 @@
 <?php
 
-namespace Nietzscheson\Admovil\CFDI\Voucher;
+namespace Nietzscheson\Admovil\CFDI;
 
 interface CFDITypeInterface
 {

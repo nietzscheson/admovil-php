@@ -9,16 +9,8 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
-interface CFDIResultInterface
+use Nietzscheson\Admovil\Voucher\VoucherInterface;
+
+interface CFDIResultInterface extends VoucherInterface
 {
-
-    /**
-     * @return string
-     */
-    public function getVoucher(): string;
-
-    /**
-     * @param string
-     */
-    public function setVoucher(string $voucher): void;
 }

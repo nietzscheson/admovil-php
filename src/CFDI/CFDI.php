@@ -13,6 +13,7 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
+use Nietzscheson\Admovil\Exception\CFDIException;
 
 class CFDI extends Admovil implements CFDIInterface
 {

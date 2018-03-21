@@ -12,6 +12,7 @@
 namespace Nietzscheson\Admovil\Fixture\Factory\CFDI;
 
 use Nietzscheson\Admovil\CFDI\CFDIUseInterface;
+use Nietzscheson\Admovil\CFDI\CFDITypeInterface;
 use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\BusinessnameFactory;
 use Nietzscheson\Admovil\CFDI\CFDIData;
@@ -63,7 +64,7 @@ class CFDIDataFactory extends AbstractFactory
 
         $resolver
             ->setDefault('billing_type', 'FA')
-            ->setDefault('voucher_type', 'I')
+            ->setDefault('voucher_type', CFDITypeInterface::INGRESS)
             ->setDefault('branch_office', '')
             ->setDefault('notes', 'The notes')
             ->setDefault('currency', 'MXN')

@@ -9,27 +9,9 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
+use Nietzscheson\Admovil\Voucher\VoucherTrait;
+
 class CFDIResult implements CFDIResultInterface
 {
-
-    /**
-     * @var string
-     */
-    private $voucher;
-
-    /**
-     * @return string
-     */
-    public function getVoucher(): string
-    {
-        return $this->voucher;
-    }
-
-    /**
-     * @param string $voucher
-     */
-    public function setVoucher(string $voucher): void
-    {
-        $this->voucher = $voucher;
-    }
+    use VoucherTrait;
 }

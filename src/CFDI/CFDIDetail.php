@@ -9,15 +9,18 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
+use Exception;
 use Nietzscheson\Admovil\Admovil;
 use Nietzscheson\Admovil\CFDI\Item\ItemsInterface;
+use Nietzscheson\Admovil\Exception\CFDIDetailException;
+use Nietzscheson\Admovil\Voucher\VoucherInterface;
 
 class CFDIDetail extends Admovil implements CFDIDetailInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function execute(ItemsInterface $items, CFDIResultInterface $voucher): void
+    public function execute(ItemsInterface $items, VoucherInterface $voucher): void
     {
         foreach($items->getItems() as $item){
 
@@ -42,12 +45,12 @@ class CFDIDetail extends Admovil implements CFDIDetailInterface
                 "CuentaPredial" => $item->getPredialAccount(),
                 "Notas" => $item->getNotes(),
             ];
+
             try{
                 $this->client->set_cfdi33_detalle($set_cfdi33_detalle);
-            }catch (\Exception $e){
-                echo '<pre>';print_r($e->getMessage());exit();
+            }catch (Exception $e){
+                throw new CFDIDetailException($e->getMessage(), $e->getCode());
             }
-
         }
     }
 }

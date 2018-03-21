@@ -13,16 +13,17 @@ declare(strict_types=1);
 
 namespace spec\Nietzscheson\Admovil\CFDI;
 
-use Nietzscheson\Admovil\CFDI\CFDIResultInterface;
+use Nietzscheson\Admovil\CFDI\CFDICheckinResultInterface;
+use Nietzscheson\Admovil\Voucher\UUIDInterface;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
 use PhpSpec\ObjectBehavior;
 
-class CFDIResultSpec extends ObjectBehavior
+class CFDICheckinResultSpec extends ObjectBehavior
 {
 
-    function it_is_should_implements_a_voucher_result_interface(): void
+    function it_is_should_implements_a_cfdi_checkin_result_interface(): void
     {
-        $this->shouldHaveType(CFDIResultInterface::class);
+        $this->shouldHaveType(CFDICheckinResultInterface::class);
     }
 
     function it_is_should_implements_a_voucher_interface(): void
@@ -30,9 +31,20 @@ class CFDIResultSpec extends ObjectBehavior
         $this->shouldHaveType(VoucherInterface::class);
     }
 
+    function it_is_should_implements_a_uuid_interface(): void
+    {
+        $this->shouldHaveType(UUIDInterface::class);
+    }
+
     function its_should_return_a_voucher(): void
     {
         $this->setVoucher($voucher = '112233445566');
         $this->getVoucher()->shouldReturn($voucher);
+    }
+
+    function its_should_return_a_uuid(): void
+    {
+        $this->setUuid($uuid = '112233445566');
+        $this->getUuid()->shouldReturn($uuid);
     }
 }
