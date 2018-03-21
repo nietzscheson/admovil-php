@@ -13,14 +13,13 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\CFDI\Voucher\VoucherInterface;
 
 class CFDI extends Admovil implements CFDIInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function execute(VoucherInterface $voucher): ?CFDIResultInterface
+    public function execute(CFDIDataInterface $voucher): ?CFDIResultInterface
     {
 
         $payment = $voucher->getPayment();

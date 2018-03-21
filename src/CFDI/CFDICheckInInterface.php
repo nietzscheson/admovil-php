@@ -10,7 +10,7 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\AdmovilInterface;
-use Nietzscheson\Admovil\CFDI\Voucher\CredentialInterface;
+use Nietzscheson\Admovil\CFDI\CFDIData\CredentialInterface;
 
 interface CFDICheckInInterface extends AdmovilInterface
 {

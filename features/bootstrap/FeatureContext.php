@@ -2,13 +2,13 @@
 
 use Behat\Gherkin\Node\TableNode;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIFactory;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\VoucherFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIDataFactory;
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\CFDI\Voucher\VoucherInterface;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\PaymentFactory;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\Businessname\BusinessnameFactory;
-use Nietzscheson\Admovil\CFDI\Voucher\Businessname\BusinessnameInterface;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\Businessname\AddressFactory;
+use Nietzscheson\Admovil\CFDI\CFDIDataInterface;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\PaymentFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\BusinessnameFactory;
+use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameInterface;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\AddressFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResult;
 use Nietzscheson\Admovil\CFDI\CFDIException;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\Item\ItemFactory;
@@ -19,7 +19,7 @@ use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDICheckInFactory;
 use Nietzscheson\Admovil\CFDI\CFDICheckinException;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\CredentialFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CredentialFactory;
 
 class FeatureContext extends AbstractFeatureContext
 {
@@ -39,7 +39,7 @@ class FeatureContext extends AbstractFeatureContext
     private $cfdiCheckIn;
 
     /**
-     * @var VoucherInterface
+     * @var CFDIDataInterface
      */
     private $voucher;
 
@@ -79,7 +79,7 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iAmSetTheVoucherAs(TableNode $table)
     {
-        $this->voucher = VoucherFactory::create($this->singleItemsTable($table));
+        $this->voucher = CFDIDataFactory::create($this->singleItemsTable($table));
     }
 
     /**

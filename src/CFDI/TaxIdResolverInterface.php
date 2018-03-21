@@ -11,13 +11,11 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
-use Nietzscheson\Admovil\CFDI\Voucher\VoucherInterface;
-
 interface TaxIdResolverInterface
 {
 
     const GENERIC_RFC = 'XEXX010101000';
 
-    public static function resolver(VoucherInterface $voucher);
+    public static function resolver(CFDIDataInterface $voucher);
 
 }
