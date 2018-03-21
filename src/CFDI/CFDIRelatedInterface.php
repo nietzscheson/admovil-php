@@ -10,9 +10,9 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\AdmovilInterface;
-use Nietzscheson\Admovil\CFDI\Voucher\VoucherInterface;
+use Nietzscheson\Admovil\Voucher\VoucherInterface;
 
-interface CFDIInterface extends AdmovilInterface
+interface CFDIRelatedInterface extends AdmovilInterface
 {
     /**
      * @param VoucherInterface $voucher

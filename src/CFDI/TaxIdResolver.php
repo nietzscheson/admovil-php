@@ -11,7 +11,7 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
-use Nietzscheson\Admovil\Voucher\VoucherInterface;
+use Nietzscheson\Admovil\CFDI\Voucher\VoucherInterface;
 
 class TaxIdResolver implements TaxIdResolverInterface
 {

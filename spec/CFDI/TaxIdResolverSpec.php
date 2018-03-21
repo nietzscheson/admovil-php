@@ -12,8 +12,8 @@
 namespace spec\Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\CFDI\TaxIdResolverInterface;
-use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
-use Nietzscheson\Admovil\Voucher\VoucherInterface;
+use Nietzscheson\Admovil\CFDI\Voucher\Businessname\BusinessnameInterface;
+use Nietzscheson\Admovil\CFDI\Voucher\VoucherInterface;
 
 class TaxIdResolverSpec
 {

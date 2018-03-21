@@ -11,8 +11,6 @@
 
 namespace Nietzscheson\Admovil\Fixture\Factory;
 
-use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\AdmovilInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AdmovilFactory extends AbstractFactory

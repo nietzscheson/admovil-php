@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace spec\Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\Fixture\Factory\Voucher\VoucherFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\VoucherFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResultInterface;
 use PhpSpec\ObjectBehavior;
 
