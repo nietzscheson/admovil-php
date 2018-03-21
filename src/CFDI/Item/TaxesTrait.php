@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\Item;
+namespace Nietzscheson\Admovil\CFDI\Item;
 
 trait TaxesTrait
 {

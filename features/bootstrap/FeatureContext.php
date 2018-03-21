@@ -2,24 +2,24 @@
 
 use Behat\Gherkin\Node\TableNode;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIFactory;
-use Nietzscheson\Admovil\Fixture\Factory\Voucher\VoucherFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\VoucherFactory;
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\Voucher\VoucherInterface;
-use Nietzscheson\Admovil\Fixture\Factory\Voucher\PaymentFactory;
-use Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname\BusinessnameFactory;
-use Nietzscheson\Admovil\Voucher\Businessname\BusinessnameInterface;
-use Nietzscheson\Admovil\Fixture\Factory\Voucher\Businessname\AddressFactory;
+use Nietzscheson\Admovil\CFDI\Voucher\VoucherInterface;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\PaymentFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\Businessname\BusinessnameFactory;
+use Nietzscheson\Admovil\CFDI\Voucher\Businessname\BusinessnameInterface;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\Businessname\AddressFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResult;
 use Nietzscheson\Admovil\CFDI\CFDIException;
-use Nietzscheson\Admovil\Fixture\Factory\Item\ItemFactory;
-use Nietzscheson\Admovil\Item\Items;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Item\ItemFactory;
+use Nietzscheson\Admovil\CFDI\Item\Items;
 use Nietzscheson\Admovil\CFDI\CFDIDetailInterface;
 use Nietzscheson\Admovil\CFDI\CFDIDetail;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDICheckInFactory;
 use Nietzscheson\Admovil\CFDI\CFDICheckinException;
-use Nietzscheson\Admovil\Fixture\Factory\Voucher\CredentialFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Voucher\CredentialFactory;
 
 class FeatureContext extends AbstractFeatureContext
 {

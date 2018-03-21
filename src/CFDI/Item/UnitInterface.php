@@ -1,6 +1,6 @@
 <?php
 
-namespace Nietzscheson\Admovil\Item;
+namespace Nietzscheson\Admovil\CFDI\Item;
 
 interface UnitInterface
 {

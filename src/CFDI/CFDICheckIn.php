@@ -11,7 +11,7 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\Voucher\CredentialInterface;
+use Nietzscheson\Admovil\CFDI\Voucher\CredentialInterface;
 
 class CFDICheckIn extends Admovil implements CFDICheckInInterface
 {

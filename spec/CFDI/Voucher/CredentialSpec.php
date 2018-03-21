@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nietzscheson\Admovil\Voucher;
+namespace spec\Nietzscheson\Admovil\CFDI\Voucher;
 
 use Nietzscheson\Admovil\CFDI\Voucher\CredentialInterface;
 use PhpSpec\ObjectBehavior;

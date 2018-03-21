@@ -10,7 +10,7 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\Item\ItemsInterface;
+use Nietzscheson\Admovil\CFDI\Item\ItemsInterface;
 
 class CFDIDetail extends Admovil implements CFDIDetailInterface
 {

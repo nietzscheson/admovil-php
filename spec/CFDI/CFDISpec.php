@@ -19,12 +19,12 @@ use PhpSpec\ObjectBehavior;
 
 class CFDISpec extends ObjectBehavior
 {
-    function its_should_implement_a_cfdi_interface()
+    function its_should_implement_a_cfdi_interface(): void
     {
         $this->shouldHaveType(CFDIInterface::class);
     }
 
-    function its_should_return_a_voucher_result_interface()
+    function its_should_return_a_voucher_result_interface(): void
     {
         $voucher = new VoucherFactory();
 

@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nietzscheson\Admovil\Voucher;
+declare(strict_types=1);
+
+namespace spec\Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\CFDI\CFDIResultInterface;
 use PhpSpec\ObjectBehavior;
@@ -17,12 +19,12 @@ use PhpSpec\ObjectBehavior;
 class CFDIResultSpec extends ObjectBehavior
 {
 
-    function it_is_should_implements_a_voucher_result_interface()
+    function it_is_should_implements_a_voucher_result_interface(): void
     {
         $this->shouldHaveType(CFDIResultInterface::class);
     }
 
-    function its_should_return_a_voucher()
+    function its_should_return_a_voucher(): void
     {
         $this->setVoucher($voucher = '112233445566');
         $this->getVoucher()->shouldReturn($voucher);

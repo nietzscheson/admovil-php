@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory\Item;
+namespace Nietzscheson\Admovil\Fixture\Factory\CFDI\Item;
 
 use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
-use Nietzscheson\Admovil\Item\Item;
-use Nietzscheson\Admovil\Item\ItemInterface;
+use Nietzscheson\Admovil\CFDI\Item\Item;
+use Nietzscheson\Admovil\CFDI\Item\ItemInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ItemFactory extends AbstractFactory

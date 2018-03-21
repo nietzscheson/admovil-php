@@ -1,6 +1,6 @@
 <?php
 
-namespace Nietzscheson\Admovil\Item;
+namespace Nietzscheson\Admovil\CFDI\Item;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

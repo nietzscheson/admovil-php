@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace spec\Nietzscheson\Admovil\Item;
+namespace spec\Nietzscheson\Admovil\CFDI\Item;
 
-use Nietzscheson\Admovil\Item\ItemInterface;
-use Nietzscheson\Admovil\Item\TaxesInterface;
-use Nietzscheson\Admovil\Item\UnitInterface;
+use Nietzscheson\Admovil\CFDI\Item\ItemInterface;
+use Nietzscheson\Admovil\CFDI\Item\TaxesInterface;
+use Nietzscheson\Admovil\CFDI\Item\UnitInterface;
 use Nietzscheson\Admovil\NotesInterface;
 use PhpSpec\ObjectBehavior;
 

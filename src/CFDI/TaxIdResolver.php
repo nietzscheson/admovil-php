@@ -30,6 +30,6 @@ class TaxIdResolver implements TaxIdResolverInterface
             return null;
         }
 
-        return $business->getTaxId();
+        return $business->getRFC();
     }
 }

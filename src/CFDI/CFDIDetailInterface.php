@@ -10,8 +10,7 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\AdmovilInterface;
-use Nietzscheson\Admovil\Item\ItemsInterface;
-use Nietzscheson\Admovil\Voucher\VoucherResultInterface;
+use Nietzscheson\Admovil\CFDI\Item\ItemsInterface;
 
 interface CFDIDetailInterface extends AdmovilInterface
 {

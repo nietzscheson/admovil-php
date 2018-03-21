@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace spec\Nietzscheson\Admovil\Voucher\Payment;
+namespace spec\Nietzscheson\Admovil\CFDI\Voucher\Payment;
 
 use Nietzscheson\Admovil\CFDI\Voucher\Payment\PaymentInterface;
 use PhpSpec\ObjectBehavior;

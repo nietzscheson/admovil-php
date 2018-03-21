@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nietzscheson\Admovil\Voucher\Businessname;
+namespace spec\Nietzscheson\Admovil\CFDI\Voucher\Businessname;
 
 use PhpSpec\ObjectBehavior;
 use Nietzscheson\Admovil\CFDI\Voucher\Businessname\BusinessnameInterface;
