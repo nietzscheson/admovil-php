@@ -11,21 +11,22 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\Related;
+namespace Nietzscheson\Admovil\CFDI\Related;
 
-use Nietzscheson\Admovil\CFDI\CFDICheckinResultInterface;
+use Nietzscheson\Admovil\Voucher\UUIDInterface;
+use Nietzscheson\Admovil\Voucher\VoucherInterface;
 
-interface RelatedInterface extends CFDICheckinResultInterface
+interface RelatedInterface extends VoucherInterface, UUIDInterface
 {
 
     /**
-     * @return string
+     * @return int|null
      */
-    public function getRelationType(): string ;
+    public function getRelationType(): ?int ;
 
     /**
-     * @param string $relationType
+     * @param int
      */
-    public function setRelationType(string $relationType): void ;
+    public function setRelationType(int $relationType): void ;
 
 }

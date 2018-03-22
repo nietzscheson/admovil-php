@@ -1,14 +1,12 @@
 <?php
 
-namespace Nietzscheson\Admovil\CFDI\Item;
+namespace Nietzscheson\Admovil\Collection;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 class Items implements ItemsInterface
 {
-
-
     /**
      * @var Collection
      */
@@ -42,5 +40,4 @@ class Items implements ItemsInterface
     {
         $this->items->remove($item);
     }
-
 }

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\CFDI\Item;
+namespace Nietzscheson\Admovil\CFDI\CFDIDetailData;
 use Nietzscheson\Admovil\NotesTrait;
 
-class Item implements ItemInterface
+class CFDIDetailData implements CFDIDetailDataInterface
 {
     use NotesTrait;
     use TaxesTrait;

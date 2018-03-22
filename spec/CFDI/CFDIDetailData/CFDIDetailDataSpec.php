@@ -11,20 +11,21 @@
 
 declare(strict_types=1);
 
-namespace spec\Nietzscheson\Admovil\CFDI\Item;
+namespace spec\Nietzscheson\Admovil\CFDI\CFDIDetailData;
 
-use Nietzscheson\Admovil\CFDI\Item\ItemInterface;
-use Nietzscheson\Admovil\CFDI\Item\TaxesInterface;
-use Nietzscheson\Admovil\CFDI\Item\UnitInterface;
+use Nietzscheson\Admovil\CFDI\CFDIDetailData\CFDIDetailDataInterface;
+use Nietzscheson\Admovil\CFDI\CFDIDetailData\TaxesInterface;
+use Nietzscheson\Admovil\CFDI\CFDIDetailData\UnitInterface;
+use Nietzscheson\Admovil\Collection\ItemInterface;
 use Nietzscheson\Admovil\NotesInterface;
 use PhpSpec\ObjectBehavior;
 
-class ItemSpec extends ObjectBehavior
+class CFDIDetailDataSpec extends ObjectBehavior
 {
 
-    function its_should_implement_a_item_interface(): void
+    function its_should_implement_a_cfdi_detail_data_interface(): void
     {
-        $this->shouldHaveType(ItemInterface::class);
+        $this->shouldHaveType(CFDIDetailDataInterface::class);
     }
 
     function its_should_implement_a_notes_interface(): void
@@ -40,6 +41,11 @@ class ItemSpec extends ObjectBehavior
     function its_should_implement_a_taxex_interface(): void
     {
         $this->shouldHaveType(TaxesInterface::class);
+    }
+
+    function its_should_implement_a_item_interface(): void
+    {
+        $this->shouldHaveType(ItemInterface::class);
     }
 
     function its_should_return_a_product_or_service_key(): void

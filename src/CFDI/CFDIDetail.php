@@ -11,7 +11,7 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\CFDI\Item\ItemsInterface;
+use Nietzscheson\Admovil\Collection\ItemsInterface;
 use Nietzscheson\Admovil\Exception\CFDIDetailException;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
 

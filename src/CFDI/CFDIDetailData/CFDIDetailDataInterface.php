@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\CFDI\Item;
+namespace Nietzscheson\Admovil\CFDI\CFDIDetailData;
 
+use Nietzscheson\Admovil\Collection\ItemInterface;
 use Nietzscheson\Admovil\NotesInterface;
 
-interface ItemInterface extends NotesInterface, TaxesInterface, UnitInterface
+interface CFDIDetailDataInterface extends NotesInterface, TaxesInterface, UnitInterface, ItemInterface
 {
     /**
      * @return string|null

@@ -21,7 +21,7 @@ use Nietzscheson\Admovil\CFDI\CFDIDataInterface;
 class CFDIDataSpec extends ObjectBehavior
 {
 
-    function it_is_should_implements_a_voucher_interface()
+    function it_is_should_implements_a_cfdi_data_interface()
     {
         $this->shouldHaveType(CFDIDataInterface::class);
     }

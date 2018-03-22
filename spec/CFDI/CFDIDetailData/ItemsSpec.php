@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace spec\Nietzscheson\Admovil\CFDI\Item;
 
 use Doctrine\Common\Collections\Collection;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\Item\ItemFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\Item\CFDIDetailDataFactory;
 use Nietzscheson\Admovil\CFDI\Item\ItemsInterface;
 use PhpSpec\ObjectBehavior;
 
@@ -23,7 +23,7 @@ class ItemsSpec extends ObjectBehavior
 
     function let()
     {
-        $this->addItem(ItemFactory::create());
+        $this->addItem(CFDIDetailDataFactory::create());
     }
 
     function its_should_implement_a_item_interface(): void

@@ -10,15 +10,15 @@ use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\Businessname
 use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameInterface;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\AddressFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResult;
-use Nietzscheson\Admovil\CFDI\CFDIException;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\Item\ItemFactory;
-use Nietzscheson\Admovil\CFDI\Item\Items;
+use Nietzscheson\Admovil\Exception\CFDIException;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIDetailData\CFDIDetailDataFactory;
+use Nietzscheson\Admovil\Collection\Items;
 use Nietzscheson\Admovil\CFDI\CFDIDetailInterface;
 use Nietzscheson\Admovil\CFDI\CFDIDetail;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDICheckInFactory;
-use Nietzscheson\Admovil\CFDI\CFDICheckinException;
+use Nietzscheson\Admovil\Exception\CFDICheckinException;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CredentialFactory;
 
 class FeatureContext extends AbstractFeatureContext
@@ -129,7 +129,7 @@ class FeatureContext extends AbstractFeatureContext
     public function iSetTheInvoiceDetails(TableNode $table)
     {
 
-        $item = ItemFactory::create($this->singleItemsTable($table));
+        $item = CFDIDetailDataFactory::create($this->singleItemsTable($table));
 
         $this->items->addItem($item);
 

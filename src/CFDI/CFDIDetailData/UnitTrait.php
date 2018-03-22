@@ -1,6 +1,6 @@
 <?php
 
-namespace Nietzscheson\Admovil\CFDI\Item;
+namespace Nietzscheson\Admovil\CFDI\CFDIDetailData;
 
 trait UnitTrait
 {

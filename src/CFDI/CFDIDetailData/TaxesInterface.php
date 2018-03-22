@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\CFDI\Item;
+namespace Nietzscheson\Admovil\CFDI\CFDIDetailData;
 
 interface TaxesInterface
 {

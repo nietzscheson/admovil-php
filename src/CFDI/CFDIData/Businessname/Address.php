@@ -76,7 +76,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getCodePostal(): int
+    public function getCodePostal() :int
     {
         return $this->codePostal;
     }

@@ -16,22 +16,22 @@ namespace Nietzscheson\Admovil\Voucher;
 trait VoucherTrait
 {
     /**
-     * @var string
+     * @var int
      */
     private $voucher;
 
     /**
-     * @return string
+     * @return int
      */
-    public function getVoucher(): string
+    public function getVoucher(): int
     {
         return $this->voucher;
     }
 
     /**
-     * @param string $voucher
+     * @param int
      */
-    public function setVoucher(string $voucher): void
+    public function setVoucher(int $voucher): void
     {
         $this->voucher = $voucher;
     }

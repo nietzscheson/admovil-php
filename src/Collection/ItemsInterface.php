@@ -1,13 +1,11 @@
 <?php
 
-namespace Nietzscheson\Admovil\CFDI\Item;
+namespace Nietzscheson\Admovil\Collection;
 
 use Doctrine\Common\Collections\Collection;
 
 interface ItemsInterface
 {
-
-
     /**
      * @return Collection
      */
@@ -22,5 +20,4 @@ interface ItemsInterface
      * @param ItemInterface
      */
     public function removeItem(ItemInterface $item): void;
-
 }

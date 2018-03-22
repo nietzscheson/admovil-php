@@ -27,7 +27,7 @@ class CFDICheckIn extends Admovil implements CFDICheckInInterface
 
             $cfdiCheckinResult = new CFDICheckinResult();
 
-            $timbrar = $this->client->timbrar(['user' => $credential->getUser(), 'password' => $credential->getPassword(), 'IdComprobante' => (int) $voucher->getVoucher()]);
+            $timbrar = $this->client->timbrar(['user' => $credential->getUser(), 'password' => $credential->getPassword(), 'IdComprobante' => $voucher->getVoucher()]);
 
             $cfdiCheckinResult->setVoucher($voucher->getVoucher());
             $cfdiCheckinResult->setUuid($timbrar->timbrarResult->UUID);

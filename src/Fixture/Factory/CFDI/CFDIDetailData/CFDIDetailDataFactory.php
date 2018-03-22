@@ -9,47 +9,47 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory\CFDI\Item;
+namespace Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIDetailData;
 
 use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
-use Nietzscheson\Admovil\CFDI\Item\Item;
-use Nietzscheson\Admovil\CFDI\Item\ItemInterface;
+use Nietzscheson\Admovil\CFDI\CFDIDetailData\CFDIDetailData;
+use Nietzscheson\Admovil\CFDI\CFDIDetailData\CFDIDetailDataInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ItemFactory extends AbstractFactory
+class CFDIDetailDataFactory extends AbstractFactory
 {
 
     /**
      * {@inheritdoc}
      */
-    public static function create(array $options = []): ItemInterface
+    public static function create(array $options = []): CFDIDetailDataInterface
     {
-        $item = new Item();
+        $cfdiDetailData = new CFDIDetailData();
 
         $optionsResolver = new OptionsResolver();
         self::configureOptions($optionsResolver);
 
         $options = $optionsResolver->resolve($options);
 
-        $item->setProductOrServiceKey($options['product_or_service_key']);
-        $item->setCertificateNumber($options['certificate_number']);
-        $item->setQuantity($options['quantity']);
-        $item->setDescription($options['description']);
-        $item->setIdentificationNumber($options['identification_number']);
-        $item->setUnitKey($options['unit_key']);
-        $item->setUnitName($options['unit_name']);
-        $item->setUnitValue($options['unit_value']);
-        $item->setVatTransfer($options['vat_transfer']);
-        $item->setVatWithheld($options['vat_withheld']);
-        $item->setIepsTransfer($options['ieps_transfer']);
-        $item->setIepsWithheld($options['ieps_withheld']);
-        $item->setIsr($options['isr']);
-        $item->setDiscount($options['discount']);
-        $item->setPedimentNumber($options['pediment_number']);
-        $item->setPredialAccount($options['predial_account']);
-        $item->setNotes($options['notes']);
+        $cfdiDetailData->setProductOrServiceKey($options['product_or_service_key']);
+        $cfdiDetailData->setCertificateNumber($options['certificate_number']);
+        $cfdiDetailData->setQuantity($options['quantity']);
+        $cfdiDetailData->setDescription($options['description']);
+        $cfdiDetailData->setIdentificationNumber($options['identification_number']);
+        $cfdiDetailData->setUnitKey($options['unit_key']);
+        $cfdiDetailData->setUnitName($options['unit_name']);
+        $cfdiDetailData->setUnitValue($options['unit_value']);
+        $cfdiDetailData->setVatTransfer($options['vat_transfer']);
+        $cfdiDetailData->setVatWithheld($options['vat_withheld']);
+        $cfdiDetailData->setIepsTransfer($options['ieps_transfer']);
+        $cfdiDetailData->setIepsWithheld($options['ieps_withheld']);
+        $cfdiDetailData->setIsr($options['isr']);
+        $cfdiDetailData->setDiscount($options['discount']);
+        $cfdiDetailData->setPedimentNumber($options['pediment_number']);
+        $cfdiDetailData->setPredialAccount($options['predial_account']);
+        $cfdiDetailData->setNotes($options['notes']);
 
-        return $item;
+        return $cfdiDetailData;
     }
 
     /**
