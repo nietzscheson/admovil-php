@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nietzscheson\Admovil\CFDI;
+namespace spec\Nietzscheson\Admovil\CFDI\CFDIData;
 
 use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameAwareInterface;
 use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameInterface;
 use Nietzscheson\Admovil\NotesInterface;
 use Nietzscheson\Admovil\CFDI\CFDIData\Payment\PaymentInterface;
 use PhpSpec\ObjectBehavior;
-use Nietzscheson\Admovil\CFDI\CFDIDataInterface;
+use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
 
 class CFDIDataSpec extends ObjectBehavior
 {

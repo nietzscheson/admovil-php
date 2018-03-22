@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\CFDI;
+namespace Nietzscheson\Admovil\CFDI\CFDIData;
 
 use Nietzscheson\Admovil\CFDI\CFDIData\CredentialInterface;
 use Nietzscheson\Admovil\NotesInterface;

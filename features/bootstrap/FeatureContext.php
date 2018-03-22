@@ -4,7 +4,7 @@ use Behat\Gherkin\Node\TableNode;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIFactory;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIDataFactory;
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\CFDI\CFDIDataInterface;
+use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\PaymentFactory;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\BusinessnameFactory;
 use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameInterface;

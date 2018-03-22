@@ -11,6 +11,8 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
+use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
+
 class TaxIdResolver implements TaxIdResolverInterface
 {
 
