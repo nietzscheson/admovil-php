@@ -3,9 +3,6 @@ Feature: Admovil Voucher
     As a User
     I need to be able stamp a Admovil Voucher
 
-  Background:
-      Given I am Connect with Admovil Service
-
   Scenario: Get a Voucher
       Given I am set the Voucher as:
           | billing_type | voucher_type | branch_office | notes | currency | exchange_rate | cfdi_use | confirmation |

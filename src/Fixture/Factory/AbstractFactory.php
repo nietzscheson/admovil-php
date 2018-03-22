@@ -15,5 +15,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 abstract class AbstractFactory implements FactoryInterface
 {
+
+    /**
+     * @var OptionsResolver $optionsResolver
+     */
+    protected $optionsResolver;
+
+    public function __construct()
+    {
+        $this->configureOptions($this->optionsResolver = new OptionsResolver());
+    }
+
     abstract protected static function configureOptions(OptionsResolver $resolver): void;
 }

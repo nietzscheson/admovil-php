@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Nietzscheson\Admovil\Related
+ * @package Nietzscheson\Admovil\CFDI\CFDIRelatedData
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *
@@ -11,15 +11,14 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\CFDI\Related;
+namespace Nietzscheson\Admovil\CFDI\CFDIRelatedData;
 
 use Nietzscheson\Admovil\Voucher\UUIDTrait;
 use Nietzscheson\Admovil\Voucher\VoucherTrait;
 
-class Related implements RelatedInterface
+class CFDIRelatedData implements CFDIRelatedDataInterface
 {
 
-    use VoucherTrait;
     use UUIDTrait;
 
     /**

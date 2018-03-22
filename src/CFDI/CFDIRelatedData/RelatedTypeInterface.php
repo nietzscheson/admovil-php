@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\CFDI\Related;
+namespace Nietzscheson\Admovil\CFDI\CFDIRelatedData;
 
 interface RelatedTypeInterface
 {

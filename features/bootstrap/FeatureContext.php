@@ -1,8 +1,7 @@
 <?php
 
 use Behat\Gherkin\Node\TableNode;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIFactory;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIDataFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CFDIDataFactory;
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
 use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\PaymentFactory;
@@ -13,11 +12,11 @@ use Nietzscheson\Admovil\CFDI\CFDIResult;
 use Nietzscheson\Admovil\Exception\CFDIException;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIDetailData\CFDIDetailDataFactory;
 use Nietzscheson\Admovil\Collection\Items;
+use Nietzscheson\Admovil\CFDI\CFDI;
 use Nietzscheson\Admovil\CFDI\CFDIDetailInterface;
 use Nietzscheson\Admovil\CFDI\CFDIDetail;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDICheckInFactory;
 use Nietzscheson\Admovil\Exception\CFDICheckinException;
 use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CredentialFactory;
 
@@ -62,16 +61,9 @@ class FeatureContext extends AbstractFeatureContext
     {
         $this->voucherResult = new CFDIResult();
         $this->items = new Items();
+        $this->cfdi = new CFDI();
         $this->cfdiDetail = new CFDIDetail();
         $this->cfdiCheckIn = new CFDICheckIn();
-    }
-
-    /**
-     * @Given I am Connect with Admovil Service
-     */
-    public function iAmConnectWithAdmovilService()
-    {
-        $this->cfdi = CFDIFactory::create();
     }
 
     /**
@@ -147,7 +139,7 @@ class FeatureContext extends AbstractFeatureContext
 
             $credential = CredentialFactory::create();
 
-            $cfdiCheckin = CFDICheckInFactory::create()->execute($this->voucherResult, $credential);
+            $cfdiCheckin = $this->cfdiCheckIn->execute($this->voucherResult, $credential);
 
         }catch (CFDICheckinException $e){
             echo $e->getMessage();

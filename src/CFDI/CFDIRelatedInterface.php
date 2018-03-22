@@ -10,14 +10,14 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\AdmovilInterface;
+use Nietzscheson\Admovil\Collection\ItemsInterface;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
 
 interface CFDIRelatedInterface extends AdmovilInterface
 {
     /**
+     * @param ItemsInterface $items
      * @param VoucherInterface $voucher
-     *
-     * @return  CFDIResultInterface|CFDIException
      */
-    public function execute(VoucherInterface $voucher): ?CFDIResultInterface;
+    public function execute(ItemsInterface $items, VoucherInterface $voucher): void;
 }

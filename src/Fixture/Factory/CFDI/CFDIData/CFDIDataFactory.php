@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Nietzscheson\Admovil\Fixture\Factory\CFDI;
+namespace Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData;
 
 use Nietzscheson\Admovil\CFDI\CFDIData\CFDIData;
 use Nietzscheson\Admovil\CFDI\CFDIUseInterface;

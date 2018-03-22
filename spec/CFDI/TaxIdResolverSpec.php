@@ -4,7 +4,7 @@ namespace spec\Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\CFDI\TaxIdResolverInterface;
 use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameInterface;
-use Nietzscheson\Admovil\CFDI\CFDIDataInterface;
+use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
 use PhpSpec\ObjectBehavior;
 
 class TaxIdResolverSpec extends ObjectBehavior
