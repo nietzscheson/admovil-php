@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @package spec\Nietzscheson\CFDI
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Nietzscheson\Admovil\Fixture\Factory
+ * @package Nietzscheson\Admovil\Fixture\Factory\Model
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *
@@ -21,5 +21,4 @@ interface FactoryInterface
      * @return object
      */
     public static function create(array $options = []);
-
 }

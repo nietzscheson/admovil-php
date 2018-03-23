@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Nietzscheson\Admovil\Related
+ * @package Nietzscheson\Admovil\Model\CFDIRelated
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *

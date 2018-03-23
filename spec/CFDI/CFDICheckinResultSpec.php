@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package spec\Nietzscheson\Admovil
+ * @package spec\Nietzscheson\CFDI
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *

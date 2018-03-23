@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package spec\Nietzscheson\Admovil\Item
+ * @package spec\Nietzscheson\Model
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *
