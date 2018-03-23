@@ -11,20 +11,20 @@
 
 namespace Nietzscheson\Admovil\CFDI;
 
-use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
+use Nietzscheson\Admovil\Model\CFDIInterface;
 
 class TaxIdResolver implements TaxIdResolverInterface
 {
 
     /**
-     * @param CFDIDataInterface $voucher
+     * @param CFDIInterface $cfdi
      *
      * @return null|string
      */
-    public static function resolver(CFDIDataInterface $voucher): ?string
+    public static function resolver(CFDIInterface $cfdi): ?string
     {
 
-        $business = $voucher->getBusinessName();
+        $business = $cfdi->getBusinessName();
 
         if($business->getRFC() === self::GENERIC_RFC){
             return null;

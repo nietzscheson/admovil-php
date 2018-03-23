@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace spec\Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CFDIDataFactory;
+use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CFDIFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResultInterface;
 use PhpSpec\ObjectBehavior;
 
@@ -26,7 +26,7 @@ class CFDISpec extends ObjectBehavior
 
     function its_should_return_a_voucher_result_interface(): void
     {
-        $voucher = new CFDIDataFactory();
+        $voucher = new CFDIFactory();
 
         $this->execute($voucher::create())->shouldBeAnInstanceOf(CFDIResultInterface::class);
     }

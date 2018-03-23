@@ -10,15 +10,15 @@
 namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\AdmovilInterface;
-use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
+use Nietzscheson\Admovil\Model\CFDIInterface as CFDIModelInterface;
 use Nietzscheson\Admovil\Exception\CFDIException;
 
 interface CFDIInterface extends AdmovilInterface
 {
     /**
-     * @param CFDIDataInterface $voucher
+     * @param CFDIModelInterface $cfdiModel
      *
      * @return  CFDIResultInterface|CFDIException
      */
-    public function execute(CFDIDataInterface $voucher): ?CFDIResultInterface;
+    public function execute(CFDIModelInterface $cfdiModel): ?CFDIResultInterface;
 }

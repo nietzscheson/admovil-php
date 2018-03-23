@@ -1,16 +1,15 @@
 <?php
 
 use Behat\Gherkin\Node\TableNode;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CFDIDataFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIFactory;
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\PaymentFactory;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\BusinessnameFactory;
-use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameInterface;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\Businessname\AddressFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDI\PaymentFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDI\Businessname\BusinessnameFactory;
+use Nietzscheson\Admovil\Model\CFDI\Businessname\BusinessnameInterface;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDI\Businessname\AddressFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResult;
 use Nietzscheson\Admovil\Exception\CFDIException;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIDetailData\CFDIDetailDataFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIDetailFactory;
 use Nietzscheson\Admovil\Collection\Items;
 use Nietzscheson\Admovil\CFDI\CFDI;
 use Nietzscheson\Admovil\CFDI\CFDIDetailInterface;
@@ -18,11 +17,11 @@ use Nietzscheson\Admovil\CFDI\CFDIDetail;
 use Nietzscheson\Admovil\CFDI\CFDICheckInInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\Exception\CFDICheckinException;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CredentialFactory;
-use Nietzscheson\Admovil\CFDI\CFDIRelatedData\CFDIRelatedData;
-use Nietzscheson\Admovil\CFDI\CFDIRelatedData\RelatedTypeInterface;
-use Nietzscheson\Admovil\CFDI\CFDIRelatedInterface;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDI\CredentialFactory;
 use Nietzscheson\Admovil\CFDI\CFDIRelated;
+use Nietzscheson\Admovil\Model\CFDIRelated as CFDIRelatedModel;
+use Nietzscheson\Admovil\Model\CFDIRelated\RelatedTypeInterface;
+use Nietzscheson\Admovil\CFDI\CFDIRelatedInterface;
 use LucidFrame\Console\ConsoleTable;
 
 class FeatureContext extends AbstractFeatureContext
@@ -43,7 +42,7 @@ class FeatureContext extends AbstractFeatureContext
     private $cfdiCheckIn;
 
     /**
-     * @var CFDIDataInterface
+     * @var CFDIInterface
      */
     private $voucher;
 
@@ -87,7 +86,7 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iAmSetTheVoucherAs(TableNode $table)
     {
-        $this->voucher = CFDIDataFactory::create($this->singleItemsTable($table));
+        $this->voucher = CFDIFactory::create($this->singleItemsTable($table));
     }
 
     /**
@@ -137,7 +136,7 @@ class FeatureContext extends AbstractFeatureContext
     public function iSetTheInvoiceDetails(TableNode $table)
     {
 
-        $item = CFDIDetailDataFactory::create($this->singleItemsTable($table));
+        $item = CFDIDetailFactory::create($this->singleItemsTable($table));
 
         $this->items = new Items();
         $this->items->addItem($item);
@@ -177,11 +176,11 @@ class FeatureContext extends AbstractFeatureContext
 
         foreach ($table as $item){
 
-            $this->voucherResult->setVoucher($this->cfdi->execute(CFDIDataFactory::create(['currency' => $item['currency']]))->getVoucher());
+            $this->voucherResult->setVoucher($this->cfdi->execute(CFDIFactory::create(['currency' => $item['currency']]))->getVoucher());
 
             $this->vouchers[] = $this->voucherResult->getVoucher();
 
-            $item = CFDIDetailDataFactory::create(['unit_value' => $item['value']]);
+            $item = CFDIDetailFactory::create(['unit_value' => $item['value']]);
 
             $items = new Items;
             $items->addItem($item);
@@ -190,7 +189,7 @@ class FeatureContext extends AbstractFeatureContext
 
             $cfdiCheckinResult = $this->cfdiCheckIn->execute($this->voucherResult, CredentialFactory::create());
 
-            $cfdiRelatedData = new CFDIRelatedData();
+            $cfdiRelatedData = new CFDIRelatedModel();
 
             $cfdiRelatedData->setUuid($cfdiCheckinResult->getUUID());
             $cfdiRelatedData->setRelationType(RelatedTypeInterface::CFDI_BY_ADVANCE_PAYMENT);
@@ -215,9 +214,9 @@ class FeatureContext extends AbstractFeatureContext
 
         foreach ($table as $item){
 
-            $this->voucherResult->setVoucher($this->cfdi->execute(CFDIDataFactory::create(['currency' => $item['currency']]))->getVoucher());
+            $this->voucherResult->setVoucher($this->cfdi->execute(CFDIFactory::create(['currency' => $item['currency']]))->getVoucher());
 
-            $item = CFDIDetailDataFactory::create(['unit_value' => $item['value']]);
+            $item = CFDIDetailFactory::create(['unit_value' => $item['value']]);
 
             $items = new Items;
             $items->addItem($item);

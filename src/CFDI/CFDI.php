@@ -13,7 +13,7 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\CFDI\CFDIData\CFDIDataInterface;
+use Nietzscheson\Admovil\Model\CFDIInterface as CFDIIModelnterface;
 use Nietzscheson\Admovil\Exception\CFDIException;
 
 class CFDI extends Admovil implements CFDIInterface
@@ -21,21 +21,21 @@ class CFDI extends Admovil implements CFDIInterface
     /**
      * {@inheritdoc}
      */
-    public function execute(CFDIDataInterface $voucher): ?CFDIResultInterface
+    public function execute(CFDIIModelnterface $cfdiModel): ?CFDIResultInterface
     {
 
-        $payment = $voucher->getPayment();
-        $business = $voucher->getBusinessName();
+        $payment = $cfdiModel->getPayment();
+        $business = $cfdiModel->getBusinessName();
         $adddress = $business->getAddress();
 
         $set_cfdi33 = [
-            "user" => $voucher->getUser(),
-            "password" => $voucher->getPassword(),
-            "Tipo" => $voucher->getBillingType(),
-            "folio_referencia" => $voucher->getSystemId(),
-            "tipoDeComprobante" => $voucher->getVoucherType(),
-            "IdSucursal" => $voucher->getBranchOffice(),
-            "emisorRFC" => $voucher->getRFC(),
+            "user" => $cfdiModel->getUser(),
+            "password" => $cfdiModel->getPassword(),
+            "Tipo" => $cfdiModel->getBillingType(),
+            "folio_referencia" => $cfdiModel->getSystemId(),
+            "tipoDeComprobante" => $cfdiModel->getVoucherType(),
+            "IdSucursal" => $cfdiModel->getBranchOffice(),
+            "emisorRFC" => $cfdiModel->getRFC(),
             "condicionesPago" => $payment->getCondition(),
             "FormaPago" => $payment->getForm(),
             "numCtaPago" => $payment->getAccount(),
@@ -53,23 +53,23 @@ class CFDI extends Admovil implements CFDIInterface
             "receptorNoIntterior" => $adddress->getInteriorNumber(),
             "receptorTel" => $adddress->getTelephone(),
             "receptorResidenciaFiscal" => $adddress->getFiscalResidency(),
-            "receptorNumRegIdTrib" => TaxIdResolver::resolver($voucher),
+            "receptorNumRegIdTrib" => TaxIdResolver::resolver($cfdiModel),
             "receptorReferencia" => $business->getReference(),
             "receptorCorreo" => $business->getEmail(),
-            "Notas" => $voucher->getNotes(),
-            "Moneda" => $voucher->getCurrency(),
-            "TipoCambio" => $voucher->getExchangeRate(),
-            "usoCFDI" => $voucher->getCFDIUse(),
-            "confirmacion" => $voucher->getConfirmation(),
+            "Notas" => $cfdiModel->getNotes(),
+            "Moneda" => $cfdiModel->getCurrency(),
+            "TipoCambio" => $cfdiModel->getExchangeRate(),
+            "usoCFDI" => $cfdiModel->getCFDIUse(),
+            "confirmacion" => $cfdiModel->getConfirmation(),
         ];
 
         try{
 
-            $voucherResult = new CFDIResult();
+            $cfdiResult = new CFDIResult();
 
-            $voucherResult->setVoucher($this->client->set_cfdi33($set_cfdi33)->set_cfdi33Result);
+            $cfdiResult->setVoucher($this->client->set_cfdi33($set_cfdi33)->set_cfdi33Result);
 
-            return $voucherResult;
+            return $cfdiResult;
 
         }catch(Exception $e){
             throw new CFDIException($e->getMessage(), $e->getCode());
