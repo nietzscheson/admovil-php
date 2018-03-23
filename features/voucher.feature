@@ -11,13 +11,13 @@ Feature: Admovil Voucher
           | account         | condition | form | method |
           | 999888777666555 | Condition | 99   | PPD    |
       And I am set the Businessname as:
-          | id | name    | rfc           | tax_id |  email          |
-          | 12 | Netflix | XEXX010101000 | 100    | email@email.com |
+          | id | name    | rfc           | email          |
+          | 12 | Netflix | XEXX010101000 | email@email.com |
       And I am set the Address as:
-          | street | code_postal | state         | city   | town          | neighborhood | exterior_number | interior_number | telephone  | fiscal_residency  |
-          | Street | 77500       |  Quintana Roo | Cancun | Benito Juarez | Mercado 28   | Exterior Number | Interior Number  | 9999999999 | USA               |
+          | street | state        | city   | town          | neighborhood | exterior_number | interior_number | fiscal_residency  |
+          | Street | Quintana Roo | Cancun | Benito Juarez | Mercado 28   | Exterior Number | Interior Number | MEX               |
       When I get a Voucher
       And I set the Invoice Details as:
-          | product_or_service_key | certificate_number | quantity | description | identification_number | unit_name | unit_key | unit_value | discount | vat_transfer | vat_withheld | ieps_transfer | ieps_withheld | isr | pediment_number | predial_account | notes |
-          | 01010101               |                    | 1        | Description | 1                     | Tambor    | 18       | 86.2068966 | 0.0      | 16           | 0            | 0             | 0             | 0   |                 |                 | Notes |
+          | product_or_service_key | certificate_number | description | unit_name | unit_key | unit_value |
+          | 01010101               |                    | Description | Tambor    | 18       | 86.2068966 |
       Then I want to Bill

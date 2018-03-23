@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace spec\Nietzscheson\Admovil\CFDI\CFDIRelatedData;
+namespace spec\Nietzscheson\Admovil\Model;
 
 use Nietzscheson\Admovil\Model\CFDIRelatedInterface;
 use Nietzscheson\Admovil\Model\CFDIRelated\RelatedTypeInterface;

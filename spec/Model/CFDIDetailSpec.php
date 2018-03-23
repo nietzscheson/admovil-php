@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace spec\Nietzscheson\Admovil\CFDI\CFDIDetailData;
+namespace spec\Nietzscheson\Admovil\Model;
 
 use Nietzscheson\Admovil\Model\CFDIDetailInterface;
 use Nietzscheson\Admovil\Model\CFDIDetail\TaxesInterface;

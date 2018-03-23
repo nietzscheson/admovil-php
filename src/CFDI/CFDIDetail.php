@@ -29,7 +29,7 @@ class CFDIDetail extends Admovil implements CFDIDetailInterface
         foreach($items->getItems() as $item){
 
             $set_cfdi33_detalle = [
-                "IdComprobante" => (int) $voucher->getVoucher(),
+                "IdComprobante" => $voucher->getVoucher(),
                 "ClaveProdServ" => $item->getProductOrServiceKey(),
                 "NoPartida" => $item->getCertificateNumber(),
                 "cantidad" => $quantity = $item->getQuantity(),

@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace spec\Nietzscheson\Admovil\CFDI\CFDIData\Businessname;
+namespace spec\Nietzscheson\Admovil\Model\CFDI\Businessname;
 
 use Nietzscheson\Admovil\Model\CFDI\Businessname\AddressInterface;
 use PhpSpec\ObjectBehavior;

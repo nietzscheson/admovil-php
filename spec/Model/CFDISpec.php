@@ -11,14 +11,14 @@
 
 declare(strict_types=1);
 
-namespace spec\Nietzscheson\Admovil\CFDI\CFDIData;
+namespace spec\Nietzscheson\Admovil\Model;
 
-use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameAwareInterface;
-use Nietzscheson\Admovil\CFDI\CFDIData\Businessname\BusinessnameInterface;
+use Nietzscheson\Admovil\Model\CFDI\Businessname\BusinessnameAwareInterface;
+use Nietzscheson\Admovil\Model\CFDI\Businessname\BusinessnameInterface;
 use Nietzscheson\Admovil\NotesInterface;
-use Nietzscheson\Admovil\CFDI\CFDIData\Payment\PaymentInterface;
+use Nietzscheson\Admovil\Model\CFDI\Payment\PaymentInterface;
 use PhpSpec\ObjectBehavior;
-use Nietzscheson\Admovil\CFDI\CFDIData\CFDIInterface;
+use Nietzscheson\Admovil\Model\CFDIInterface;
 
 class CFDISpec extends ObjectBehavior
 {

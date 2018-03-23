@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace spec\Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\CFDI\CFDIInterface;
-use Nietzscheson\Admovil\Fixture\Factory\CFDI\CFDIData\CFDIFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIFactory;
 use Nietzscheson\Admovil\CFDI\CFDIResultInterface;
 use PhpSpec\ObjectBehavior;
 
