@@ -26,8 +26,8 @@ class CFDIRelated extends Admovil implements CFDIRelatedInterface
 
             $set_cfdi33_relacionados = [
                 "IdComprobante" => $voucher->getVoucher(),
-                "tipoRelacion" => $item->getProductOrServiceKey(),
-                "uuid" => $item->getCertificateNumber(),
+                "tipoRelacion" => $item->getRelationType(),
+                "uuid" => $item->getUuid(),
             ];
 
             try{

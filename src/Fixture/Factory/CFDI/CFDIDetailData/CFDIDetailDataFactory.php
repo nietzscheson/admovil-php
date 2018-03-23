@@ -64,7 +64,7 @@ class CFDIDetailDataFactory extends AbstractFactory
             ->setDefault('description', 'The product description')
             ->setDefault('identification_number', '1')
             ->setDefault('unit_key', '18')
-            ->setDefault('unit_name', 'Tambor de cincuenta y cinco galones (EUA)')
+            ->setDefault('unit_name', 'Tambor')
             ->setDefault('unit_value', '100.00')
             ->setDefault('vat_transfer', '16')
             ->setDefault('vat_withheld', '16')
