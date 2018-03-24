@@ -13,12 +13,14 @@ declare(strict_types=1);
 
 namespace Nietzscheson\Admovil\Model;
 
+use Nietzscheson\Admovil\Currency\CurrencyInterface;
+use Nietzscheson\Admovil\Currency\ExchangeRateInterface;
 use Nietzscheson\Admovil\Model\CFDI\CredentialInterface;
 use Nietzscheson\Admovil\NotesInterface;
 use Nietzscheson\Admovil\Model\CFDI\Payment\PaymentAwareInterface;
 use Nietzscheson\Admovil\Model\CFDI\Businessname\BusinessnameAwareInterface;
 
-interface CFDIInterface extends CredentialInterface, NotesInterface, PaymentAwareInterface, BusinessnameAwareInterface
+interface CFDIInterface extends CredentialInterface, CurrencyInterface, ExchangeRateInterface, NotesInterface, PaymentAwareInterface, BusinessnameAwareInterface
 {
 
     /**
@@ -50,26 +52,6 @@ interface CFDIInterface extends CredentialInterface, NotesInterface, PaymentAwar
      * @param string
      */
     public function setBranchOffice(string $branchOffice): void;
-
-    /**
-     * @return string
-     */
-    public function getCurrency(): string;
-
-    /**
-     * @param string
-     */
-    public function setCurrency(string $currency): void;
-
-    /**
-     * @return string
-     */
-    public function getExchangeRate(): string;
-
-    /**
-     * @param string
-     */
-    public function setExchangeRate(string $exchangeRate): void;
 
     /**
      * @return string

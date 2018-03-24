@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace spec\Nietzscheson\Admovil\Model;
 
+use Nietzscheson\Admovil\Currency\CurrencyInterface;
 use Nietzscheson\Admovil\Model\CFDI\Businessname\BusinessnameAwareInterface;
 use Nietzscheson\Admovil\Model\CFDI\Businessname\BusinessnameInterface;
 use Nietzscheson\Admovil\NotesInterface;
@@ -26,6 +27,11 @@ class CFDISpec extends ObjectBehavior
     function it_is_should_implements_a_cfdi_data_interface()
     {
         $this->shouldHaveType(CFDIInterface::class);
+    }
+
+    function it_is_should_implements_a_currency_interface()
+    {
+        $this->shouldHaveType(CurrencyInterface::class);
     }
 
     function it_is_should_implement_a_notes_interface()

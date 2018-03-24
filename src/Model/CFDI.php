@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Nietzscheson\Admovil\Model;
 
+use Nietzscheson\Admovil\Currency\CurrencyTrait;
+use Nietzscheson\Admovil\Currency\ExchangeRateTrait;
 use Nietzscheson\Admovil\Model\CFDI\Credential;
 use Nietzscheson\Admovil\NotesTrait;
 use Nietzscheson\Admovil\Model\CFDI\Payment\PaymentAwareTrait;
@@ -20,6 +22,8 @@ use Nietzscheson\Admovil\Model\CFDI\Businessname\BusinessnameAwareTrait;
 
 class CFDI extends Credential implements CFDIInterface
 {
+    use CurrencyTrait;
+    use ExchangeRateTrait;
     use NotesTrait;
     use PaymentAwareTrait;
     use BusinessnameAwareTrait;
@@ -48,16 +52,6 @@ class CFDI extends Credential implements CFDIInterface
      * @var $total
      */
     private $total;
-
-    /**
-     * @var string
-     */
-    private $currency;
-
-    /**
-     * @var string
-     */
-    private $exchangeRate;
 
     /**
      * @var string
@@ -147,38 +141,6 @@ class CFDI extends Credential implements CFDIInterface
     public function setTotal($total): void
     {
         $this->total = $total;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCurrency(): string
-    {
-        return $this->currency;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setCurrency(string $currency): void
-    {
-        $this->currency = $currency;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getExchangeRate(): string
-    {
-        return $this->exchangeRate;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setExchangeRate(string $exchangeRate): void
-    {
-        $this->exchangeRate = $exchangeRate;
     }
 
     /**
