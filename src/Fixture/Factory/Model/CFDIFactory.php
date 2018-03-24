@@ -31,7 +31,7 @@ class CFDIFactory extends AbstractFactory
      */
     public static function create(array $options = []): CFDIInterface
     {
-        $voucher = new CFDI();
+        $cfdi = new CFDI();
         $credendialFactory = CredentialFactory::create();
 
         $optionsResolver = new OptionsResolver();
@@ -39,23 +39,23 @@ class CFDIFactory extends AbstractFactory
 
         $options = $optionsResolver->resolve($options);
 
-        $voucher->setUser($credendialFactory->getUser());
-        $voucher->setPassword($credendialFactory->getPassword());
-        $voucher->setRFC($credendialFactory->getRFC());
-        $voucher->setSystemId($credendialFactory->getSystemId());
-        $voucher->setBillingType($options['billing_type']);
-        $voucher->setVoucherType($options['voucher_type']);
-        $voucher->setBranchOffice($options['branch_office']);
-        $voucher->setCurrency($options['currency']);
-        $voucher->setExchangeRate($options['exchange_rate']);
-        $voucher->setCfdiUse($options['cfdi_use']);
-        $voucher->setConfirmation($options['confirmation']);
-        $voucher->setNotes($options['notes']);
+        $cfdi->setUser($credendialFactory->getUser());
+        $cfdi->setPassword($credendialFactory->getPassword());
+        $cfdi->setRFC($credendialFactory->getRFC());
+        $cfdi->setSystemId($credendialFactory->getSystemId());
+        $cfdi->setBillingType($options['billing_type']);
+        $cfdi->setVoucherType($options['voucher_type']);
+        $cfdi->setBranchOffice($options['branch_office']);
+        $cfdi->setCurrency($options['currency']);
+        $cfdi->setExchangeRate($options['exchange_rate']);
+        $cfdi->setCfdiUse($options['cfdi_use']);
+        $cfdi->setConfirmation($options['confirmation']);
+        $cfdi->setNotes($options['notes']);
 
-        $voucher->setPayment(PaymentFactory::create());
-        $voucher->setBusinessName(BusinessnameFactory::create());
+        $cfdi->setPayment(PaymentFactory::create());
+        $cfdi->setBusinessName(BusinessnameFactory::create());
         
-        return $voucher;
+        return $cfdi;
     }
 
     /**
@@ -70,7 +70,7 @@ class CFDIFactory extends AbstractFactory
             ->setDefault('branch_office', '')
             ->setDefault('notes', 'The notes')
             ->setDefault('currency', 'MXN')
-            ->setDefault('exchange_rate', '19')
+            ->setDefault('exchange_rate', 1.0)
             ->setDefault('cfdi_use', CFDIUseInterface::UNDEFINED)
             ->setDefault('confirmation', '')
         ;

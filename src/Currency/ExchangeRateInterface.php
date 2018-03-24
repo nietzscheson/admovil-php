@@ -16,12 +16,12 @@ namespace Nietzscheson\Admovil\Currency;
 interface ExchangeRateInterface
 {
     /**
-     * @return string
+     * @return float
      */
-    public function getExchangeRate(): string;
+    public function getExchangeRate(): float;
 
     /**
-     * @param string
+     * @param float
      */
-    public function setExchangeRate(string $exchangeRate): void;
+    public function setExchangeRate(float $exchangeRate): void;
 }

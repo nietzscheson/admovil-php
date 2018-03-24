@@ -32,6 +32,11 @@ class CFDIPayment implements CFDIPaymentInterface
     /**
      * @var string
      */
+    private $form;
+
+    /**
+     * @var string
+     */
     private $operationNumber;
 
     /**
@@ -48,6 +53,22 @@ class CFDIPayment implements CFDIPaymentInterface
     public function setDate(Datetime $date): void
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getForm(): string
+    {
+        return $this->form;
+    }
+
+    /**
+     * @param string $form
+     */
+    public function setForm(string $form): void
+    {
+        $this->form = $form;
     }
 
     /**

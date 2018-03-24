@@ -16,14 +16,14 @@ namespace Nietzscheson\Admovil\Currency;
 trait ExchangeRateTrait
 {
     /**
-     * @var string
+     * @var float
      */
     private $exchangeRate;
 
     /**
      * {@inheritdoc}
      */
-    public function getExchangeRate(): string
+    public function getExchangeRate(): float
     {
         return $this->exchangeRate;
     }
@@ -31,7 +31,7 @@ trait ExchangeRateTrait
     /**
      * {@inheritdoc}
      */
-    public function setExchangeRate(string $exchangeRate): void
+    public function setExchangeRate(float $exchangeRate): void
     {
         $this->exchangeRate = $exchangeRate;
     }
