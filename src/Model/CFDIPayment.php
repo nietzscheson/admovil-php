@@ -53,7 +53,7 @@ class CFDIPayment implements CFDIPaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function getOperationNumber(): string
+    public function getOperationNumber(): ?string
     {
         return $this->operationNumber;
     }
@@ -61,7 +61,7 @@ class CFDIPayment implements CFDIPaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function setOperationNumber(string $operationNumber): void
+    public function setOperationNumber(string $operationNumber = null): void
     {
         $this->operationNumber = $operationNumber;
     }

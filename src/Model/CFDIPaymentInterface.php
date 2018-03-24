@@ -31,12 +31,12 @@ interface CFDIPaymentInterface extends CurrencyInterface, ExchangeRateInterface,
     public function setDate(Datetime $date): void;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOperationNumber(): string;
+    public function getOperationNumber(): ?string;
 
     /**
      * @param string
      */
-    public function setOperationNumber(string $operationNumber): void;
+    public function setOperationNumber(string $operationNumber = null): void;
 }
