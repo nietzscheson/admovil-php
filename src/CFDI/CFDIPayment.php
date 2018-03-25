@@ -40,7 +40,7 @@ class CFDIPayment extends Admovil implements CFDIPaymentInterface
 
             $cfdiPaymentResult = new CFDIPaymentResult();
 
-            $cfdiPaymentResult->setId($this->client->set_pagos10($set_pagos)->set_pagos10Result);
+            $cfdiPaymentResult->setId((int) $this->client->set_pagos10($set_pagos)->set_pagos10Result);
 
             return $cfdiPaymentResult;
 

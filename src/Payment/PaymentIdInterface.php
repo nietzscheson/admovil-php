@@ -16,13 +16,13 @@ namespace Nietzscheson\Admovil\Payment;
 interface PaymentIdInterface
 {
     /**
-     * @return string
+     * @return int|null
      */
-    public function getId(): string;
+    public function getId(): ?int;
 
     /**
-     * @param string $id
+     * @param int
      */
-    public function setId(string $id): void;
+    public function setId(int $id): void;
 
 }

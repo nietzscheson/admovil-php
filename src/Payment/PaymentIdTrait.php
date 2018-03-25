@@ -17,22 +17,22 @@ trait PaymentIdTrait
 {
 
     /**
-     * @var string
+     * @var int
      */
     private $id;
 
     /**
-     * @return string
+     * @return int|null
      */
-    public function getId(): string
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @param string $id
+     * @param int
      */
-    public function setId(string $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }

@@ -15,7 +15,7 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\Exception\CFDIPaymentException;
+use Nietzscheson\Admovil\Exception\CFDIPaymentDetailException;
 use Nietzscheson\Admovil\Model\CFDIPaymentDetailInterface as CFDIPaymentDetailModelnterface;
 
 class CFDIPaymentDetail extends Admovil implements CFDIPaymentDetailtInterface
@@ -43,7 +43,7 @@ class CFDIPaymentDetail extends Admovil implements CFDIPaymentDetailtInterface
             $this->client->set_pagos10_detalle($set_pagos10_detalle);
 
         }catch(Exception $e){
-            throw new CFDIPaymentException($e->getMessage(), $e->getCode());
+            throw new CFDIPaymentDetailException($e->getMessage(), $e->getCode());
         }
     }
 }

@@ -44,6 +44,7 @@ class CFDIPaymentDetailFactory extends AbstractFactory
         $cfdiPaymentDetail->setUuid($options['uuid']);
         $cfdiPaymentDetail->setCurrency($options['currency']);
         $cfdiPaymentDetail->setExchangeRate($options['exchange_rate']);
+        $cfdiPaymentDetail->setSerie($options['serie']);
         $cfdiPaymentDetail->setFolio($options['folio']);
         $cfdiPaymentDetail->setPartialityNumber($options['partiality_number']);
         $cfdiPaymentDetail->setPreviousBalanceAmount($options['previous_balanace_amount']);
@@ -90,11 +91,11 @@ class CFDIPaymentDetailFactory extends AbstractFactory
             })
             ->setDefault('currency', 'MXN')
             ->setDefault('exchange_rate', 1.0)
-            ->setDefault('serie', '112233')
-            ->setDefault('folio', '112233')
-            ->setDefault('partiality_number', '112233')
-            ->setDefault('previous_balanace_amount', 1.0)
-            ->setDefault('amount_paid', 1.0)
+            ->setDefault('serie', null)
+            ->setDefault('folio', null)
+            ->setDefault('partiality_number', '1')
+            ->setDefault('previous_balanace_amount', 100.0)
+            ->setDefault('amount_paid', 100.0)
         ;
     }
 }
