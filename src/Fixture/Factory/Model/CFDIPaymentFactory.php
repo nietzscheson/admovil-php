@@ -31,10 +31,6 @@ class CFDIPaymentFactory extends AbstractFactory
      */
     public static function create(array $options = []): CFDIPaymentInterface
     {
-        #$date = new DateTime('now');
-
-        #$format = $date->format(DateTimeInterface::ADMOVIL);
-
         $cfdiPayment = new CFDIPayment();
 
         $optionsResolver = new OptionsResolver();
