@@ -33,7 +33,6 @@ class CFDIPayment extends Admovil implements CFDIPaymentInterface
             "moneda" => $cfdiPaymentModel->getCurrency(),
             "tipoCambio" => $cfdiPaymentModel->getExchangeRate(),
             "numOperacion" => $cfdiPaymentModel->getOperationNumber(),
-
         ];
 
         try{

@@ -7,9 +7,7 @@ Feature: Admovil Voucher Related
       Given I generate a multiples bills as:
           | value | currency |
           | 250   | MXN      |
-          | 150   | MXN      |
       And I generate a bill for related as:
           | value | currency |
           | 500   | MXN      |
-      When I want related
       Then Must me notified that is related

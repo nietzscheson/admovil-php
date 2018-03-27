@@ -23,6 +23,10 @@ use Nietzscheson\Admovil\Model\CFDIRelated as CFDIRelatedModel;
 use Nietzscheson\Admovil\Model\CFDIRelated\RelatedTypeInterface;
 use Nietzscheson\Admovil\CFDI\CFDIRelatedInterface;
 use LucidFrame\Console\ConsoleTable;
+use Nietzscheson\Admovil\CFDI\CFDIPayment;
+use Nietzscheson\Admovil\CFDI\CFDIPaymentDetail;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIPaymentFactory;
+use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIPaymentDetailFactory;
 
 class FeatureContext extends AbstractFeatureContext
 {
@@ -71,6 +75,16 @@ class FeatureContext extends AbstractFeatureContext
      */
     private $vouchers;
 
+    /**
+     * @var CFDIPayment
+     */
+    private $cfdiPayment;
+
+    /**
+     * @var CFDIPaymentDetail
+     */
+    private $cfdiPaymentDetail;
+
     public function __construct()
     {
         $this->voucherResult = new CFDIResult();
@@ -79,6 +93,8 @@ class FeatureContext extends AbstractFeatureContext
         $this->cfdiDetail = new CFDIDetail();
         $this->cfdiCheckIn = new CFDICheckIn();
         $this->cfdiRelated = new CFDIRelated();
+        $this->cfdiPayment = new CFDIPayment();
+        $this->cfdiPaymentDetail = new CFDIPaymentDetail();
     }
 
     /**
@@ -223,6 +239,8 @@ class FeatureContext extends AbstractFeatureContext
 
             $this->cfdiDetail->execute($items, $this->voucherResult);
 
+            $this->cfdiRelated->execute($this->itemsRelated, $this->voucherResult);
+
             $this->cfdiCheckIn->execute($this->voucherResult, CredentialFactory::create());
 
             $consoleTable->addRow(['#', $this->voucherResult->getVoucher()]);
@@ -237,7 +255,7 @@ class FeatureContext extends AbstractFeatureContext
      */
     public function iWantToRelated()
     {
-        $this->cfdiRelated->execute($this->itemsRelated, $this->voucherResult);
+
     }
 
     /**
@@ -254,5 +272,42 @@ class FeatureContext extends AbstractFeatureContext
         }
 
         $consoleTable->display();
+    }
+
+    /**
+     * @Given I generate a bill as :billAmount with a payment supplement as :paymentSupplementAmount as
+     */
+    public function iGenerateABillAs($billAmount, $paymentSupplementAmount)
+    {
+
+        $consoleTable = new ConsoleTable();
+        $consoleTable->setHeaders(['Voucher', 'Payment Id']);
+
+        $this->voucherResult->setVoucher($this->cfdi->execute(CFDIFactory::create())->getVoucher());
+
+        $item = CFDIDetailFactory::create(['unit_value' => $billAmount]);
+
+        $items = new Items;
+        $items->addItem($item);
+
+        $this->cfdiDetail->execute($items, $this->voucherResult);
+
+        $this->cfdiCheckIn->execute($this->voucherResult, CredentialFactory::create());
+
+
+
+        try{
+            $cfdiPaymentResult = $this->cfdiPayment->execute(CFDIPaymentFactory::create(['voucher' => $this->voucherResult->getVoucher()]));
+
+            $consoleTable->addRow([$this->voucherResult->getVoucher(), $cfdiPaymentResult->getId()]);
+
+            $this->cfdiPaymentDetail->execute(CFDIPaymentDetailFactory::create(['voucher' => $this->voucherResult->getVoucher(), 'payment_id' => $cfdiPaymentResult->getId(), 'amount_paid' => (float) $paymentSupplementAmount]));
+
+            $consoleTable->display();
+
+        }catch (Exception $e){
+            echo '<pre>';print_r($e->getMessage());exit();
+        }
+
     }
 }

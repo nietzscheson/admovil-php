@@ -15,7 +15,6 @@ namespace Nietzscheson\Admovil\Fixture\Factory\Model;
 
 use DateTime;
 use Nietzscheson\Admovil\CFDI\CFDI;
-use Nietzscheson\Admovil\DateTime\DateTimeInterface;
 use Nietzscheson\Admovil\Fixture\Factory\AbstractFactory;
 use Nietzscheson\Admovil\Model\CFDI\Payment\PaymentFormInterface;
 use Nietzscheson\Admovil\Model\CFDIPayment;
@@ -63,10 +62,7 @@ class CFDIPaymentFactory extends AbstractFactory
             ->setDefault('currency', 'MXN')
             ->setDefault('exchange_rate', 1.0)
             ->setDefault('date', function(Options $options){
-
                 return new DateTime('now');
-
-                #return $date->format('h:i:s A');
             })
           ->setDefault('form', PaymentFormInterface::CASH)
           ->setDefault('operation_number', 'Operation Number')

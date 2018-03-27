@@ -27,7 +27,7 @@ class CFDIPaymentDetail extends Admovil implements CFDIPaymentDetailtInterface
     {
         $set_pagos10_detalle = [
             "IdComprobante" => $cfdiPaymentDetailModel->getVoucher(),
-            "idPago" => $cfdiPaymentDetailModel->getId(),
+            "IdPago" => $cfdiPaymentDetailModel->getId(),
             "uuid" => $cfdiPaymentDetailModel->getUUID(),
             "serie" => $cfdiPaymentDetailModel->getSerie(),
             "folio" => $cfdiPaymentDetailModel->getFolio(),
