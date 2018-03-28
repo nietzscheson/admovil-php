@@ -26,16 +26,16 @@ class CFDIPayment extends Admovil implements CFDIPaymentInterface
      */
     public function execute(CFDIPaymentModelnterface $cfdiPaymentModel): ?CFDIPaymentResultInterface
     {
-        $set_pagos = [
-            "IdComprobante" => $cfdiPaymentModel->getVoucher(),
-            "fechaPago" => $cfdiPaymentModel->getDate()->format(DateTimeInterface::ADMOVIL),
-            "formaPago" => $cfdiPaymentModel->getForm(),
-            "moneda" => $cfdiPaymentModel->getCurrency(),
-            "tipoCambio" => $cfdiPaymentModel->getExchangeRate(),
-            "numOperacion" => $cfdiPaymentModel->getOperationNumber(),
-        ];
-
         try{
+
+            $set_pagos = [
+               "IdComprobante" => $cfdiPaymentModel->getVoucher(),
+               "fechaPago" => $cfdiPaymentModel->getDate()->format(DateTimeInterface::ADMOVIL),
+               "formaPago" => $cfdiPaymentModel->getForm(),
+               "moneda" => $cfdiPaymentModel->getCurrency(),
+               "tipoCambio" => $cfdiPaymentModel->getExchangeRate(),
+               "numOperacion" => $cfdiPaymentModel->getOperationNumber(),
+            ];
 
             $cfdiPaymentResult = new CFDIPaymentResult();
 

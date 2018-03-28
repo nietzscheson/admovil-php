@@ -20,13 +20,13 @@ interface CFDIRelatedInterface extends UUIDInterface, ItemInterface
 {
 
     /**
-     * @return int
+     * @return string|null
      */
-    public function getRelationType(): int;
+    public function getRelationType(): ?string;
 
     /**
-     * @param int
+     * @param string
      */
-    public function setRelationType(int $relationType): void;
+    public function setRelationType(string $relationType): void;
 
 }

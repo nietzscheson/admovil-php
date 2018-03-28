@@ -43,7 +43,7 @@ class CFDIPaymentDetailSpec extends ObjectBehavior
 
     function its_should_return_a_payment_id(): void
     {
-        $this->setId($id = '12');
+        $this->setId($id = 12);
         $this->getId()->shouldReturn($id);
     }
 

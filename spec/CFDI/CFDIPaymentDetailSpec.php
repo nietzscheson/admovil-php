@@ -24,9 +24,4 @@ class CFDIPaymentDetailSpec extends ObjectBehavior
     {
         $this->shouldHaveType(CFDIPaymentDetailtInterface::class);
     }
-
-    function its_should_return_a_cfdi_payment_detail(): void
-    {
-        $this->execute(CFDIPaymentDetailFactory::create())->shouldBeAnInstanceOf(null);
-    }
 }

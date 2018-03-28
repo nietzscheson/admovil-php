@@ -21,14 +21,14 @@ class CFDIRelated implements CFDIRelatedInterface
     use UUIDTrait;
 
     /**
-     * @var int
+     * @var string
      */
     private $relationType;
 
     /**
      * {@inheritdoc}
      */
-    public function getRelationType(): int
+    public function getRelationType(): ?string
     {
         return $this->relationType;
     }
@@ -36,7 +36,7 @@ class CFDIRelated implements CFDIRelatedInterface
     /**
      * {@inheritdoc}
      */
-    public function setRelationType(int $relationType): void
+    public function setRelationType(string $relationType): void
     {
         $this->relationType = $relationType;
     }

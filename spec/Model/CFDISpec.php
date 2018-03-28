@@ -76,7 +76,7 @@ class CFDISpec extends ObjectBehavior
 
     function it_is_should_return_a_exchange_rate()
     {
-        $this->setExchangeRate($exchangeRate = (string) 'The Exchange Rate');
+        $this->setExchangeRate($exchangeRate = 1.0);
         $this->getExchangeRate()->shouldReturn($exchangeRate);
     }
 

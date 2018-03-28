@@ -292,16 +292,14 @@ class FeatureContext extends AbstractFeatureContext
 
         $this->cfdiDetail->execute($items, $this->voucherResult);
 
-        $this->cfdiCheckIn->execute($this->voucherResult, CredentialFactory::create());
-
-
-
         try{
             $cfdiPaymentResult = $this->cfdiPayment->execute(CFDIPaymentFactory::create(['voucher' => $this->voucherResult->getVoucher()]));
 
             $consoleTable->addRow([$this->voucherResult->getVoucher(), $cfdiPaymentResult->getId()]);
 
             $this->cfdiPaymentDetail->execute(CFDIPaymentDetailFactory::create(['voucher' => $this->voucherResult->getVoucher(), 'payment_id' => $cfdiPaymentResult->getId(), 'amount_paid' => (float) $paymentSupplementAmount]));
+
+            $this->cfdiCheckIn->execute($this->voucherResult, CredentialFactory::create());
 
             $consoleTable->display();
 

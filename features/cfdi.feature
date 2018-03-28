@@ -5,8 +5,8 @@ Feature: Admovil Voucher
 
   Scenario: Get a Voucher
       Given I am set the Voucher as:
-          | billing_type | voucher_type | branch_office | notes | currency | exchange_rate | cfdi_use | confirmation |
-          | FA           | I            |               | Notes | MXN      | 1             | P01      |              |
+          | billing_type | voucher_type  | notes | currency  | cfdi_use | confirmation |
+          | FA           | I             | Notes | MXN       | P01      |              |
       And I am set the Payment as:
           | account         | condition | form | method |
           | 999888777666555 | Condition | 99   | PPD    |
