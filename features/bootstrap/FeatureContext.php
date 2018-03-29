@@ -27,6 +27,8 @@ use Nietzscheson\Admovil\CFDI\CFDIPayment;
 use Nietzscheson\Admovil\CFDI\CFDIPaymentDetail;
 use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIPaymentFactory;
 use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIPaymentDetailFactory;
+use Nietzscheson\Admovil\CFDI\UUID;
+use Nietzscheson\Admovil\Exception\UUIDException;
 
 class FeatureContext extends AbstractFeatureContext
 {
@@ -307,5 +309,33 @@ class FeatureContext extends AbstractFeatureContext
             echo '<pre>';print_r($e->getMessage());exit();
         }
 
+    }
+
+    /**
+     * @Given Must me notified with the uuid of voucher
+     */
+    public function mustMeNotifiedWithTheUUIDOfVoucher()
+    {
+        $consoleTable = new ConsoleTable();
+        $consoleTable->setHeaders(['','Voucher', 'UUID']);
+
+        foreach ($this->vouchers as $item){
+            $cfdiResult = new CFDIResult();
+
+            $cfdiResult->setVoucher($item);
+
+            $uuid = new UUID();
+
+            try{
+                $uuidResult = $uuid->execute(CredentialFactory::create(), $cfdiResult);
+
+                $consoleTable->addRow(['#', $item, $uuidResult->getUUID()]);
+            }catch(UUIDException $e){
+                echo $e->getMessage();
+                exit();
+            }
+        }
+
+        $consoleTable->display();
     }
 }
