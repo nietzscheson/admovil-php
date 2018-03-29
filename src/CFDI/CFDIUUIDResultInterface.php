@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Nietzscheson\Admovil\CFDI;
 
-use Nietzscheson\Admovil\Voucher\UuidInterface;
+use Nietzscheson\Admovil\Voucher\UUIDInterface;
 
 interface CFDIUUIDResultInterface extends UUIDInterface
 {
