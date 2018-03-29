@@ -27,8 +27,9 @@ use Nietzscheson\Admovil\CFDI\CFDIPayment;
 use Nietzscheson\Admovil\CFDI\CFDIPaymentDetail;
 use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIPaymentFactory;
 use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIPaymentDetailFactory;
-use Nietzscheson\Admovil\CFDI\UUID;
-use Nietzscheson\Admovil\Exception\UUIDException;
+use Nietzscheson\Admovil\CFDI\CFDIUUID;
+use Nietzscheson\Admovil\Exception\CFDIUUIDException;
+use Nietzscheson\Admovil\CFDI\CFDICancel;
 
 class FeatureContext extends AbstractFeatureContext
 {
@@ -324,13 +325,42 @@ class FeatureContext extends AbstractFeatureContext
 
             $cfdiResult->setVoucher($item);
 
-            $uuid = new UUID();
+            $uuid = new CFDIUUID();
 
             try{
                 $uuidResult = $uuid->execute(CredentialFactory::create(), $cfdiResult);
 
                 $consoleTable->addRow(['#', $item, $uuidResult->getUUID()]);
-            }catch(UUIDException $e){
+            }catch(CFDIUUIDException $e){
+                echo $e->getMessage();
+                exit();
+            }
+        }
+
+        $consoleTable->display();
+    }
+
+    /**
+     * @Given Must me notified that voucher is canceled
+     */
+    public function mustMeNotifiedThatVoucherIsCanceled()
+    {
+        $consoleTable = new ConsoleTable();
+        $consoleTable->setHeaders(['','Voucher']);
+
+        foreach ($this->vouchers as $item){
+            $cfdiResult = new CFDIResult();
+
+            $cfdiResult->setVoucher($item);
+
+            $cfdiCancel = new CFDICancel();
+
+            try{
+
+                $cfdiCancel->execute(CredentialFactory::create(), $cfdiResult);
+
+                $consoleTable->addRow(['#', $item]);
+            }catch(CFDIUUIDException $e){
                 echo $e->getMessage();
                 exit();
             }

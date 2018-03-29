@@ -19,13 +19,13 @@ use Nietzscheson\Admovil\Model\CFDIInterface as CFDIModelInterface;
 use Nietzscheson\Admovil\Exception\CFDIException;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
 
-interface UUIDInterface extends AdmovilInterface
+interface CFDIUUIDInterface extends AdmovilInterface
 {
     /**
      * @param CredentialInterface $credential
      * @param VoucherInterface $voucher
      *
-     * @return  UUIDResultInterface|CFDIException
+     * @return  CFDIUUIDResultInterface|CFDIException
      */
-    public function execute(CredentialInterface $credential, VoucherInterface $voucher): ?UUIDResultInterface;
+    public function execute(CredentialInterface $credential, VoucherInterface $voucher): ?CFDIUUIDResultInterface;
 }

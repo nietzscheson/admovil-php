@@ -15,6 +15,6 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\Voucher\UuidInterface;
 
-interface UUIDResultInterface extends UUIDInterface
+interface CFDIUUIDResultInterface extends UUIDInterface
 {
 }

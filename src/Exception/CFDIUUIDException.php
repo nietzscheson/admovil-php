@@ -15,6 +15,6 @@ namespace Nietzscheson\Admovil\Exception;
 
 use Exception;
 
-class UUIDException extends Exception
+class CFDIUUIDException extends Exception
 {
 }

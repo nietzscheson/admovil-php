@@ -15,33 +15,29 @@ namespace Nietzscheson\Admovil\CFDI;
 
 use Exception;
 use Nietzscheson\Admovil\Admovil;
-use Nietzscheson\Admovil\Exception\UUIDException;
+use Nietzscheson\Admovil\Exception\CFDIUUIDException;
 use Nietzscheson\Admovil\Model\CFDI\CredentialInterface;
 use Nietzscheson\Admovil\Voucher\VoucherInterface;
 
-class UUID extends Admovil implements UUIDInterface
+class CFDICancel extends Admovil implements CFDICancelInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function execute(CredentialInterface $credential, VoucherInterface $voucher): ?UUIDResultInterface
+    public function execute(CredentialInterface $credential, VoucherInterface $voucher): void
     {
         try{
 
-            $get_uuid = [
+            $data = [
                "user" => $credential->getUser(),
                "password" => $credential->getPassword(),
                "IdComprobante" => $voucher->getVoucher(),
             ];
 
-            $uuidResult = new UUIDResult();
-
-            $uuidResult->setUuid($this->client->get_uuid($get_uuid)->get_uuidResult);
-
-            return $uuidResult;
+            $this->client->Cancela_Comprobante($data);
 
         }catch(Exception $e){
-            throw new UUIDException($e->getMessage(), $e->getCode());
+            throw new CFDIUUIDException($e->getMessage(), $e->getCode());
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Nietzscheson\Admovil\CFDI
+ * @package Nietzscheson\Admovil\Exception
  *
  * (c) Cristian Angulo Nova <@nietzscheson>
  *
@@ -11,11 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Nietzscheson\Admovil\CFDI;
+namespace Nietzscheson\Admovil\Exception;
 
-use Nietzscheson\Admovil\Voucher\UUIDTrait;
+use Exception;
 
-class UUIDResult implements UUIDResultInterface
+class CFDICancelException extends Exception
 {
-    use UUIDTrait;
 }

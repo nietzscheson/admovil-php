@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace spec\Nietzscheson\Admovil\CFDI;
 
 use Nietzscheson\Admovil\CFDI\CFDI;
+use Nietzscheson\Admovil\CFDI\CFDICancelInterface;
+use Nietzscheson\Admovil\CFDI\CFDICancelResultInterface;
 use Nietzscheson\Admovil\CFDI\CFDICheckIn;
 use Nietzscheson\Admovil\CFDI\CFDIDetail;
-use Nietzscheson\Admovil\CFDI\UUIDInterface;
-use Nietzscheson\Admovil\CFDI\UUIDResultInterface;
 use Nietzscheson\Admovil\Collection\Items;
 use Nietzscheson\Admovil\Exception\CFDICheckinException;
 use Nietzscheson\Admovil\Exception\CFDIDetailException;
@@ -27,14 +27,14 @@ use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIDetailFactory;
 use Nietzscheson\Admovil\Fixture\Factory\Model\CFDIFactory;
 use PhpSpec\ObjectBehavior;
 
-class UUIDSpec extends ObjectBehavior
+class CFDICancelSpec extends ObjectBehavior
 {
     function its_should_implement_a_uuid_interface(): void
     {
-        $this->shouldHaveType(UUIDInterface::class);
+        $this->shouldHaveType(CFDICancelInterface::class);
     }
 
-    function its_should_return_a_uuid_result_interface(): void
+    function its_should_return_a_cfdi_cancel_interface(): void
     {
         $cfdi = new CFDI();
 
@@ -68,6 +68,6 @@ class UUIDSpec extends ObjectBehavior
             exit();
         }
 
-        $this->execute($credential, $cfdiResult)->shouldBeAnInstanceOf(UUIDResultInterface::class);
+        $this->execute($credential, $cfdiResult)->shouldContain(null);
     }
 }
