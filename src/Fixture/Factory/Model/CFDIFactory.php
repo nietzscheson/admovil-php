@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nietzscheson\Admovil\Fixture\Factory\Model;
 
+use Nietzscheson\Admovil\BillingType\BillingTypeInterface;
 use Nietzscheson\Admovil\Model\CFDI;
 use Nietzscheson\Admovil\CFDI\CFDIUseInterface;
 use Nietzscheson\Admovil\CFDI\CFDITypeInterface;
@@ -65,7 +66,7 @@ class CFDIFactory extends AbstractFactory
     {
 
         $resolver
-            ->setDefault('billing_type', 'FA')
+            ->setDefault('billing_type', BillingTypeInterface::BILL)
             ->setDefault('voucher_type', CFDITypeInterface::INGRESS)
             ->setDefault('branch_office', '')
             ->setDefault('notes', 'The notes')
