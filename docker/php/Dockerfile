@@ -7,3 +7,5 @@ RUN docker-php-ext-install soap
 
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
+
+COPY --from=composer:1.6.5 /usr/bin/composer /usr/bin/composer

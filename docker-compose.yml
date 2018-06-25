@@ -1,13 +1,6 @@
-version: "2"
+version: "3.3"
 
 services:
-  composer:
-    image: composer:1.6.5
-    volumes:
-      - .:/app
-    command: ['install']
-    networks:
-      - admovil
   php:
     build: docker/php
     ports:
@@ -19,7 +12,6 @@ services:
       - admovil
     environment:
       XDEBUG_CONFIG: 
-        #remote_host=192.168.0.9
         remote_host=${REMOTE_HOST}
         remote_enable=1
       PHP_IDE_CONFIG: serverName=admovil
