@@ -2,7 +2,7 @@ version: "2"
 
 services:
   composer:
-    image: composer
+    image: composer:1.6.5
     volumes:
       - .:/app
     command: ['install']
@@ -18,7 +18,10 @@ services:
     networks:
       - admovil
     environment:
-      XDEBUG_CONFIG: remote_host=192.168.33.1 remote_port=9000 
+      XDEBUG_CONFIG: 
+        #remote_host=192.168.0.9
+        remote_host=${REMOTE_HOST}
+        remote_enable=1
       PHP_IDE_CONFIG: serverName=admovil
 
 networks:
