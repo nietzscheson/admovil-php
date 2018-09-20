@@ -4,7 +4,6 @@ sudo: false
 
 services:
   - docker
-  - git
 
 stages:
   - build
@@ -20,7 +19,7 @@ install:
 
 jobs:
   include:
-    - state: build
+    - stage: build
       script: 
         - docker-compose build
         - docker-compose run --rm php composer install --prefer-dist -n
