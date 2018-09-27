@@ -29,12 +29,12 @@ use PhpSpec\ObjectBehavior;
 
 class CFDICancelSpec extends ObjectBehavior
 {
-    function its_should_implement_a_uuid_interface(): void
+    function its_should_return_a_cfdi_cancel_interface(): void
     {
         $this->shouldHaveType(CFDICancelInterface::class);
     }
 
-    function its_should_return_a_cfdi_cancel_interface(): void
+    function its_should_execute_a_cfdi_cancel(): void
     {
         $cfdi = new CFDI();
 
@@ -68,6 +68,6 @@ class CFDICancelSpec extends ObjectBehavior
             exit();
         }
 
-        $this->execute($credential, $cfdiResult)->shouldContain(null);
+        $this->execute($credential, $cfdiResult)->shouldBeEqualTo(null);
     }
 }
