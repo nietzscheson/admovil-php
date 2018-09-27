@@ -44,7 +44,7 @@ class CFDIPaymentSpec extends ObjectBehavior
 
     function its_should_return_a_voucher(): void
     {
-        $this->setVoucher($voucher = 112233445566);
+        $this->setVoucher($voucher = '112233445566');
         $this->getVoucher()->shouldReturn($voucher);
     }
 
