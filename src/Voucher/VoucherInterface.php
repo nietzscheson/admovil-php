@@ -16,12 +16,12 @@ namespace Nietzscheson\Admovil\Voucher;
 interface VoucherInterface
 {
     /**
-     * @return int
+     * @return string
      */
-    public function getVoucher(): int;
+    public function getVoucher(): string;
 
     /**
-     * @param int
+     * @param string
      */
-    public function setVoucher(int $voucher): void;
+    public function setVoucher(string $voucher): void;
 }

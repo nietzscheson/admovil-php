@@ -69,7 +69,7 @@ class CFDI extends Admovil implements CFDIInterface
 
             $cfdiResult = new CFDIResult();
 
-            $cfdiResult->setVoucher((int) $this->client->set_cfdi33($set_cfdi33)->set_cfdi33Result);
+            $cfdiResult->setVoucher($this->client->set_cfdi33($set_cfdi33)->set_cfdi33Result);
 
             return $cfdiResult;
 

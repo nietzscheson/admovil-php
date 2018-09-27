@@ -28,13 +28,7 @@ class CFDICancel extends Admovil implements CFDICancelInterface
     {
         try{
 
-            $data = [
-               "user" => $credential->getUser(),
-               "password" => $credential->getPassword(),
-               "IdComprobante" => $voucher->getVoucher(),
-            ];
-
-            $this->client->Cancela_Comprobante($data);
+            $this->client->Cancela_Comprobante(["usuario" => $credential->getUser(), "contraseña" => $credential->getPassword(), "IdComprobante" => $voucher->getVoucher()]);
 
         }catch(Exception $e){
             throw new CFDIUUIDException($e->getMessage(), $e->getCode());
