@@ -12,7 +12,9 @@ services:
       XDEBUG_CONFIG: 
         remote_host=${REMOTE_HOST}
         remote_enable=1
-      PHP_IDE_CONFIG: serverName=admovil
+        remote_port=9000
+        remote_default_enable=1
+        remote_connect_back=0
     networks:
       - admovil
 
