@@ -39,7 +39,7 @@ class CFDIPaymentDetailFactory extends AbstractFactory
 
         $options = $optionsResolver->resolve($options);
 
-        $cfdiPaymentDetail->setVoucher($options['voucher']);
+        $cfdiPaymentDetail->setVoucher($options['voucher']->getVoucher());
         $cfdiPaymentDetail->setId($options['payment_id']);
         $cfdiPaymentDetail->setUuid($options['uuid']);
         $cfdiPaymentDetail->setCurrency($options['currency']);
@@ -47,7 +47,7 @@ class CFDIPaymentDetailFactory extends AbstractFactory
         $cfdiPaymentDetail->setSerie($options['serie']);
         $cfdiPaymentDetail->setFolio($options['folio']);
         $cfdiPaymentDetail->setPartialityNumber($options['partiality_number']);
-        $cfdiPaymentDetail->setPreviousBalanceAmount($options['previous_balanace_amount']);
+        $cfdiPaymentDetail->setPreviousBalanceAmount($options['previous_balance_amount']);
         $cfdiPaymentDetail->setAmountPaid($options['amount_paid']);
 
         return $cfdiPaymentDetail;
@@ -58,35 +58,57 @@ class CFDIPaymentDetailFactory extends AbstractFactory
      */
     protected static function configureOptions(OptionsResolver $resolver): void
     {
-         $cfdi = new CFDI();
-
-         $voucher = $cfdi->execute(CFDIFactory::create());
-
-         $cfdiDetail = new CFDIDetail();
-
-         $items = new Items();
-
-         $items->addItem(CFDIDetailFactory::create());
-
-         $cfdiDetail->execute($items, $voucher);
-
-         $cfdiCheckin = new CFDICheckIn();
-
-         $cfdiCheckinResult = $cfdiCheckin->execute($voucher, CredentialFactory::create());
-
-         $cfdiPayment = new CFDIPayment();
-
-         $paymentId = $cfdiPayment->execute(CFDIPaymentFactory::create(['voucher' => $voucher->getVoucher()]))->getId();
+#         $cfdi = new CFDI();
+#
+#         $voucher = $cfdi->execute(CFDIFactory::create());
+#
+#         $cfdiDetail = new CFDIDetail();
+#
+#         $items = new Items();
+#
+#         $items->addItem(CFDIDetailFactory::create());
+#
+#         $cfdiDetail->execute($items, $voucher);
+#
+#         $cfdiCheckin = new CFDICheckIn();
+#
+#         $cfdiCheckinResult = $cfdiCheckin->execute($voucher, CredentialFactory::create());
+#
+#         $cfdiPayment = new CFDIPayment();
+#
+#         $paymentId = $cfdiPayment->execute(CFDIPaymentFactory::create(['voucher' => $voucher->getVoucher()]))->getId();
 
         $resolver
-            ->setDefault('voucher', function (Options $options) use ($voucher){
+            ->setDefault('voucher', function (Options $options){
 
-                return $voucher->getVoucher();
+                $cfdi = new CFDI();
+
+                $voucher = $cfdi->execute(CFDIFactory::create());
+       
+                $cfdiDetail = new CFDIDetail();
+
+                $items = new Items();
+
+                $items->addItem(CFDIDetailFactory::create());
+
+                $cfdiDetail->execute($items, $voucher);
+
+                return $voucher;
             })
-            ->setDefault('payment_id', function (Options $options) use ($paymentId){
+            ->setDefault('payment_id', function (Options $options){
+
+                $cfdiPayment = new CFDIPayment();
+
+                $paymentId = $cfdiPayment->execute(CFDIPaymentFactory::create(['voucher' => $options['voucher']->getVoucher()]))->getId();
+
                 return $paymentId;
             })
-            ->setDefault('uuid', function(Options $options) use ($cfdiCheckinResult){
+            ->setDefault('uuid', function(Options $options){
+
+                $cfdiCheckin = new CFDICheckIn();
+
+                $cfdiCheckinResult = $cfdiCheckin->execute($options['voucher'], CredentialFactory::create());
+
                 return $cfdiCheckinResult->getUUID();
             })
             ->setDefault('currency', 'MXN')
@@ -94,7 +116,7 @@ class CFDIPaymentDetailFactory extends AbstractFactory
             ->setDefault('serie', null)
             ->setDefault('folio', null)
             ->setDefault('partiality_number', '1')
-            ->setDefault('previous_balanace_amount', 100.0)
+            ->setDefault('previous_balance_amount', 100.0)
             ->setDefault('amount_paid', 100.0)
         ;
     }

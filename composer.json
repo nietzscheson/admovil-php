@@ -17,12 +17,9 @@
     },
     "require-dev": {
         "phpspec/phpspec": "4.3.0",
-        "behat/behat": "^3.4",
-        "fzaninotto/faker": "^1.7",
-        "symfony/options-resolver": "4.0.2"
-    },
-    "config": {
-        "bin-dir": "bin"
+        "behat/behat": "dev-master",
+        "fzaninotto/faker": "1.8",
+        "symfony/options-resolver": "4.1.4"
     },
     "autoload": {
         "psr-4": { "Nietzscheson\\Admovil\\": "src" }

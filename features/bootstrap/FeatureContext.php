@@ -300,9 +300,15 @@ class FeatureContext extends AbstractFeatureContext
 
             $consoleTable->addRow([$this->voucherResult->getVoucher(), $cfdiPaymentResult->getId()]);
 
-            $this->cfdiPaymentDetail->execute(CFDIPaymentDetailFactory::create(['voucher' => $this->voucherResult->getVoucher(), 'payment_id' => $cfdiPaymentResult->getId(), 'amount_paid' => (float) $paymentSupplementAmount]));
+            $cfdiCheckinResult = $this->cfdiCheckIn->execute($this->voucherResult, CredentialFactory::create());
 
-            $this->cfdiCheckIn->execute($this->voucherResult, CredentialFactory::create());
+            $this->cfdiPaymentDetail->execute(CFDIPaymentDetailFactory::create([
+                'voucher' => $this->voucherResult, 
+                'payment_id' => $cfdiPaymentResult->getId(), 
+                'amount_paid' => (float) $paymentSupplementAmount, 
+                'uuid' => $cfdiCheckinResult->getUUID(),
+                'previous_balance_amount' => (float) $billAmount
+            ]));
 
             $consoleTable->display();
 
