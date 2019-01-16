@@ -24,5 +24,6 @@ interface PaymentFormInterface
     const PANTRY_VOUCHERS = '08';
     const DEDIT_CARD = '28';
     const SERVICE_CARD = '29';
+    const ADVANCE_PAYMENT = '30';
     const UNDEFINED = '99';
 }
