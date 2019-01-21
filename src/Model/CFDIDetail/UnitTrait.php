@@ -64,17 +64,17 @@ trait UnitTrait
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getUnitValue(): ?string
+    public function getUnitValue(): ?float
     {
         return $this->unitValue;
     }
 
     /**
-     * @param string
+     * @param float
      */
-    public function setUnitValue(string $unitValue = null): void
+    public function setUnitValue(float $unitValue = null): void
     {
         $this->unitValue = $unitValue;
     }

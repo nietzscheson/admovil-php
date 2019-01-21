@@ -37,12 +37,12 @@ interface UnitInterface
     public function setUnitKey(string $key = null): void;
 
     /**
-     * @return string
+     * @return float
      */
-    public function getUnitValue(): ?string;
+    public function getUnitValue(): ?float;
 
     /**
-     * @param string
+     * @param float
      */
-    public function setUnitValue(string $value = null): void;
+    public function setUnitValue(float $value = null): void;
 }

@@ -40,7 +40,7 @@ class CFDIDetailFactory extends AbstractFactory
         $cfdiDetailData->setIdentificationNumber($options['identification_number']);
         $cfdiDetailData->setUnitKey($options['unit_key']);
         $cfdiDetailData->setUnitName($options['unit_name']);
-        $cfdiDetailData->setUnitValue($options['unit_value']);
+        $cfdiDetailData->setUnitValue((float) $options['unit_value']);
         $cfdiDetailData->setVatTransfer($options['vat_transfer']);
         $cfdiDetailData->setVatWithheld($options['vat_withheld']);
         $cfdiDetailData->setIepsTransfer($options['ieps_transfer']);
@@ -67,7 +67,7 @@ class CFDIDetailFactory extends AbstractFactory
             ->setDefault('identification_number', 1)
             ->setDefault('unit_key', '18')
             ->setDefault('unit_name', 'Tambor')
-            ->setDefault('unit_value', '100.00')
+            ->setDefault('unit_value', 100.00)
             ->setDefault('vat_transfer', 16.00)
             ->setDefault('vat_withheld', 16.00)
             ->setDefault('ieps_transfer', 0.0)
