@@ -152,7 +152,7 @@ class CFDIDetailSpec extends ObjectBehavior
 
     function its_should_return_a_unit_value(): void
     {
-        $this->setUnitValue($unitValue = 'Unit value');
+        $this->setUnitValue($unitValue = 100.00);
         $this->getUnitValue()->shouldReturn($unitValue);
     }
 }
