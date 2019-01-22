@@ -19,5 +19,5 @@ Feature: Admovil Voucher
       When I get a Voucher
       And I set the Invoice Details as:
           | product_or_service_key | certificate_number | description | unit_name | unit_key | unit_value |
-          | 01010101               |                    | Description | Tambor    | 18       | 86.2068966 |
+          | 01010101               |                    | Description | Tambor    | 18       | 86.2068966     |
       Then I want to Bill
